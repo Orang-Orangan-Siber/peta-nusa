@@ -39,14 +39,8 @@ export default function () {
                         </ul>
                     </div>
                     <div className="">
-                        <ul className="flex">
-                            <li>
-                                <a href="">Tidak</a>
-                            </li>
-                            <li>
-                                <a href="">Keren</a>
-                            </li>
-                        </ul>
+                        <a href="" className="border border-slate-700 px-5 py-3 text-sm">Masuk</a>
+                        <a href="" className="border border-slate-700 bg-slate-700 px-5 py-3 text-white text-sm ms-2">Daftar</a>
                     </div>
                 </div>
             </nav>
