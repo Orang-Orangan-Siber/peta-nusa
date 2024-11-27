@@ -4,11 +4,11 @@ export default function () {
             <div className="w-full bg-orange-50 h-[50px] flex items-center justify-center">
                 <p className="text-sm text-slate-400 tracking-wide">Ada tempat baru nih! Yuk kunjungi sekarang! <a href="" className="text-orange-400">Klik disini</a></p>
             </div>
-            <nav className="w-full py-5 bg-white border-b sticky top-[0] left-[0] right-[0] z-[100]">
+            <nav className="w-full py-4 bg-white border-b sticky top-[0] left-[0] right-[0] z-[100]">
                 <div className="flex items-center justify-between mx-16">
                     <div className="navbar-brand flex items-center">
                         <a href="" className="font-bold text-2xl">
-                            PetaNusa
+                            <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/89033712/390588554-6cea6ecc-52e8-48f2-86d7-4400fa57ee85.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20241127%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241127T230241Z&X-Amz-Expires=300&X-Amz-Signature=15e5b2067a71590f5f95ef2dbb888b96eb62b66eedeac1914390f2d1429f12cb&X-Amz-SignedHeaders=host" alt="logo" className="logo-brand" width="150px" />
                         </a>
                     </div>
 
