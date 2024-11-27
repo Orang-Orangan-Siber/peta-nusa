@@ -8,10 +8,10 @@ use Illuminate\Http\Request;
 class AuthController extends Controller
 {
     public function loginView() {
-        return Inertia::render('Auth/Register');
+        return Inertia::render('Auth/Login');
     }
 
     public function registerView() {
-        return Inertia::render('Auth/Login');
+        return Inertia::render('Auth/Register');
     }
 }
