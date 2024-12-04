@@ -1,29 +1,29 @@
 import { useState, useEffect, useRef } from "react";
 export default function () {
-    const [visibleElements, setVisibleElements] = useState([]);
+    // const [visibleElements, setVisibleElements] = useState([]);
 
-    useEffect(() => {
-        const elements = document.querySelectorAll(".scroll-element");
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        setVisibleElements((prev) => [
-                            ...prev,
-                            entry.target.id,
-                        ]);
-                    }
-                });
-            },
-            { threshold: 0.1 }
-        );
+    // useEffect(() => {
+    //     const elements = document.querySelectorAll(".scroll-element");
+    //     const observer = new IntersectionObserver(
+    //         (entries) => {
+    //             entries.forEach((entry) => {
+    //                 if (entry.isIntersecting) {
+    //                     setVisibleElements((prev) => [
+    //                         ...prev,
+    //                         entry.target.id,
+    //                     ]);
+    //                 }
+    //             });
+    //         },
+    //         { threshold: 0.1 }
+    //     );
 
-        elements.forEach((el) => observer.observe(el));
+    //     elements.forEach((el) => observer.observe(el));
 
-        return () => {
-            elements.forEach((el) => observer.unobserve(el));
-        };
-    }, []);
+    //     return () => {
+    //         elements.forEach((el) => observer.unobserve(el));
+    //     };
+    // }, []);
     return (
         <div className="">
             <div className="w-full bg-orange-50 h-[50px] flex items-center justify-center">
@@ -39,7 +39,7 @@ export default function () {
                     <div className="navbar-brand flex items-center">
                         <a href="" className="font-bold text-2xl">
                             <img
-                                src="https://github-production-user-asset-6210df.s3.amazonaws.com/89033712/390588554-6cea6ecc-52e8-48f2-86d7-4400fa57ee85.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20241127%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241127T230241Z&X-Amz-Expires=300&X-Amz-Signature=15e5b2067a71590f5f95ef2dbb888b96eb62b66eedeac1914390f2d1429f12cb&X-Amz-SignedHeaders=host"
+                                src="https://i.ibb.co.com/XSmd6vF/peta-nusa-logo-2.png"
                                 alt="logo"
                                 className="logo-brand"
                                 width="150px"
@@ -281,7 +281,7 @@ export default function () {
                 {/* <h5 className="text-[50px]">ELAINA CANTIK</h5> */}
                 {/* <img src="https://www.papuaparadise.com/wp-content/uploads/2017/09/bungalows-1200x800.jpg" alt="img hero" width="100%" className="keren" /> */}
             </section>
-            <section id="about" className="flex justify-between gap-2">
+            {/* <section id="about" className="flex justify-between gap-2">
                 <h1
                     id="about-heading"
                     className={`text-[40px] align-middle w-2/5 font-semibold text-center transition-all duration-700 ease-in-out scroll-element ${
@@ -310,7 +310,7 @@ export default function () {
                     consequuntur assumenda amet ab iusto repudiandae cumque
                     deserunt nihil!
                 </p>
-            </section>
+            </section> */}
         </div>
     );
 }
