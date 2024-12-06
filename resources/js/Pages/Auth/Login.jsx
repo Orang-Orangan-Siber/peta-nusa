@@ -1,10 +1,12 @@
 export default function () {
     return (
-        <section className="bg-gray-50 m-0">
-            <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-                <p className="flex items-center mb-6 text-3xl font-bold text-gray-900 ">
-                    PetaNusa
-                </p>
+        <section className="bg-gray-50 m-0 lg:flex lg:flex-row">
+            <div className="flex flex-col items-center justify-center px-6 py-8 md:h-screen lg:py-0 lg:w-1/2">
+                <img
+                    src="https://i.ibb.co.com/XSmd6vF/peta-nusa-logo-2.png"
+                    alt="logo"
+                    className="w-64 my-3"
+                />
                 <div className="w-full bg-white rounded-lg shadow  md:mt-0 sm:max-w-md xl:p-0 ">
                     <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                         <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">
@@ -88,6 +90,14 @@ export default function () {
                         </form>
                     </div>
                 </div>
+            </div>
+            <div className="lg:w-1/2 lg:block hidden">
+                <img
+                    src="https://www.papuaparadise.com/wp-content/uploads/2017/09/bungalows-1200x800.jpg"
+                    alt="img hero"
+                    width="100%"
+                    className="w-full h-full object-cover"
+                />
             </div>
         </section>
     );
