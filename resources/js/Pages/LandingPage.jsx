@@ -281,6 +281,11 @@ export default function () {
                 {/* <h5 className="text-[50px]">ELAINA CANTIK</h5> */}
                 {/* <img src="https://www.papuaparadise.com/wp-content/uploads/2017/09/bungalows-1200x800.jpg" alt="img hero" width="100%" className="keren" /> */}
             </section>
+
+            <div id="map">
+                <div class="w-full h-[100vh]"></div>
+            </div>
+
             {/* <section id="about" className="flex justify-between gap-2">
                 <h1
                     id="about-heading"

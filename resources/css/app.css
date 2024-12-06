@@ -5,7 +5,6 @@
 
 body {
     font-family: "Inter", sans-serif;
-    height: 4200px;
 }
 
 /* CUSTOMIZE  */
@@ -42,3 +41,25 @@ section {
         transform: translatey(0);
     }
 }
+
+
+
+/* MAP SECTION  */
+
+#map > div {
+    animation: change-bg-map-color linear both;
+    animation-timeline: scroll(root block);
+    animation-range: 1250px 1700px; 
+}
+
+@keyframes change-bg-map-color {
+    from {
+        background-color: white;
+        opacity: 0;
+    }
+    to {
+        background-color: #202020;
+        opacity: 1;
+    }
+}
+
