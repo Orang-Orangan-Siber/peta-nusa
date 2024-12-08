@@ -17,10 +17,12 @@ return new class extends Migration
             $table->foreign('province_id')->references('id')->on('provinces');
 
             $table->string('name')->nullable();
+            $table->string('tagline')->nullable();
             $table->string('slug')->nullable();
             $table->string('thumbnail')->nullable();
             $table->longText('images')->nullable();
-            $table->longText('description')->nullable();
+            $table->longText('short_history')->nullable();
+            $table->longText('body')->nullable();
 
             $table->timestamps();
         });
