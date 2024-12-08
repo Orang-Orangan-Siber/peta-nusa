@@ -22,7 +22,7 @@ export default function () {
                         </a>
                     </div>
 
-                    <div className="">
+                    <div className="lg:block hidden">
                         <ul className="flex gap-7 text-sm text-slate-500 tracking-wide font-medium">
                             <li>
                                 <a href="/" className=" hover:text-slate-900">
