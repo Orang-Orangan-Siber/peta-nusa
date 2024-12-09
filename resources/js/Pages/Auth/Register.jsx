@@ -98,17 +98,17 @@ export default function () {
                                     id="password"
                                     ref={password}
                                     placeholder="••••••••"
-                                    className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-1 focus:ring-orange-400 focus:border-orange-400 block w-full p-2.5 outline-none transition-all pr-[50px]"
+                                    className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-1 focus:ring-orange-400 focus:border-orange-400 block w-full p-2.5 outline-none transition-all pr-[46px]"
                                     required
                                 />
                                 {showPassword ? (
                                     <svg
-                                        width={36}
-                                        height={36}
+                                        width={30}
+                                        height={30}
                                         fill="#fb923c"
                                         viewBox="0 0 24 24"
                                         xmlns="http://www.w3.org/2000/svg"
-                                        className="absolute right-2 bottom-[6px] cursor-pointer"
+                                        className="absolute right-2 bottom-[8px] cursor-pointer"
                                         onClick={() => {
                                             setShowPassword(!showPassword);
                                         }}
@@ -121,8 +121,8 @@ export default function () {
                                     </svg>
                                 ) : (
                                     <svg
-                                        width={36}
-                                        height={36}
+                                        width={30}
+                                        height={30}
                                         fill="none"
                                         stroke="#fb923c"
                                         strokeLinecap="round"
@@ -130,7 +130,7 @@ export default function () {
                                         strokeWidth={1.8}
                                         viewBox="0 0 24 24"
                                         xmlns="http://www.w3.org/2000/svg"
-                                        className="absolute right-2 bottom-[6px] cursor-pointer"
+                                        className="absolute right-2 bottom-[8px] cursor-pointer"
                                         onClick={() => {
                                             setShowPassword(!showPassword);
                                         }}
