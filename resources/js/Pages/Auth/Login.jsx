@@ -1,9 +1,11 @@
 import axios from "axios";
 import { useRef, useState } from "react";
+import React from 'react'
 
 export default function () {
     const email = useRef();
     const password = useRef();
+
 
     const [showPassword, setShowPassword] = useState(false);
 
@@ -15,7 +17,7 @@ export default function () {
                     password,
                 })
                 .then((res) => {
-                    console.log(res);
+                    window.location.href="/"
                 })
                 .catch((res) => {
                     console.error(res.response.data);
@@ -35,7 +37,7 @@ export default function () {
                 />
                 <div className="w-full bg-white rounded-lg shadow  md:mt-0 sm:max-w-md xl:p-0 ">
                     <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-                        <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">
+                        <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
                             Sign in to your account
                         </h1>
                         <form
@@ -148,7 +150,7 @@ export default function () {
                             >
                                 Sign in
                             </button>
-                            <p className="text-sm font-light text-gray-500">
+                            <p className="text-sm font-light text-gray-500 text-center">
                                 Don’t have an account yet?{" "}
                                 <a
                                     href="/auth/register"

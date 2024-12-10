@@ -41,7 +41,7 @@ class AuthController extends Controller
 
     public function registerPost(Request $request) {
         $request->validate([
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users,email',
             'name' => 'required',
             'password' => 'required',
         ]);
@@ -59,13 +59,13 @@ class AuthController extends Controller
 
     }
 
-    public function logout(Request $request) {
-        $request->session()->regenerateToken();
-        $request->session()->invalidate();
-
+    public function destroy(Request $request) {
         Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
 
-        return redirect('/auth/login');
+
+        return to_route('login')->with('message', 'Anda berhasil logout');
 
     }
 }

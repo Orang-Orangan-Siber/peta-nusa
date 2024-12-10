@@ -1,6 +1,15 @@
 import Navbar from '@/Components/Navbar/Navbar'
+import { usePage } from "@inertiajs/react";
 
 export default function () {
+
+    const { props } = usePage(); 
+    const { destination } = props;
+    const images = JSON.parse(destination.images)
+
+    console.log(destination.destinationDetail);
+
+
     return (
         <>
             <Navbar/>
@@ -12,18 +21,25 @@ export default function () {
                         <div className="flex justify-around items-center h-full">
                             <div className="text-center">
                                 <h1 className='text-sm'>Provinsi</h1>
-                                <h1 className='font-bold'>Jawa Barat</h1>
+                                <h1 className='font-bold capitalize'>{destination.province.name}</h1>
                             </div>
-                            <div className="text-center">
-                                <h1 className='text-sm'>Provinsi</h1>
-                                <h1 className='font-bold'>Jawa Barat</h1>
+                            <div className="text-center lg:block md:block hidden">
+                                <h1 className='text-sm'>Operatioanal</h1>
+                                <h1 className='font-bold'>{destination.operational}</h1>
                             </div>
-                            <div className="text-center">
+                            <div className="text-center lg:block md:block hidden">
                                 <h1 className='text-sm'>Dibuat</h1>
-                                <h1 className='font-bold'>23 May 2024</h1>
+                                <h1 className="font-bold">
+                                {new Date(destination.created_at).toLocaleDateString("id-ID", {
+                                    year: "numeric",
+                                    month: "long",
+                                    day: "numeric",
+                                })}
+                                </h1>
                             </div>
                             <div className="text-center">
-                                <h1 className='text-sm'>Bookmarks</h1>
+                                <h1 className='text-sm'>Bookmark</h1>
+                                {/* <p className='text-xs text-orange-500'>Telah ditambahkan</p> */}
                                 <button className='font-semibold text-sm px-4 text-orange-500'>Tambah +</button>
                             </div>
                         </div>
@@ -31,32 +47,33 @@ export default function () {
                 </div>
             </header>
       
-            <section className='my-20'>
+            <div className='my-20 lg:mx-[4rem] mx-4'>
                 <div className="grid lg:grid-cols-[8fr,4fr] grid-cols-1 gap-10">
                     <div className="lg:order-0 order-1">
-                        <h1 className="text-[60px] font-semibold leading-[1] mb-5">Candi Borobudur</h1>
+                        <h1 className="lg:text-[60px] text-[36px] font-semibold leading-[1] mb-2">{destination.name} </h1>
+                        <p className='font-semibold lg:text-xl text-md mb-5 text-slate-500 leading-[1.2]'>{destination.tagline} </p>
                         <div className="">
-                            <p>Sobat Pesona pastinya sudah tidak asing kan dengan Candi Borobudur? Terletak di Kabupaten Magelang, Jawa Tengah, candi yang sangat megah dan rupawan ini telah dikenal oleh wisatawan lokal maupun mancanegara sebagai kuil Buddha terbesar di dunia. Wajar saja, karena Candi Borobudur memiliki luas sekitar 2500 meter persegi, dengan panjang 121,66 meter, lebar 121,38 meter, dan tinggi 35,40 meter.</p>
-                            <p>Selain dari skalanya yang besar, Candi yang sangat legendaris ini tentunya juga menyimpan beragam fakta unik, serta berbagai macam hal menarik yang bisa Sobat Pesona temui saat berkunjung kesini. Sebelum Sobat Pesona beranjak ke Candi Borobudur, simak dulu yuk ulasan lengkapnya di bawah ini!</p>
-                            <p>Tak hanya menawarkan keajaiban dunia, di sini Sobat Pesona juga bisa menemukan beraneka ragam objek wisata lainnya yang tidak kalah menarik. Di sekitar candi, terdapat tiga museum yang Sobat Pesona bisa kunjungi untuk menambah wawasan, yaitu Museum Borobudur, Museum Kapal Samudraraksa, dan Museum MURI. Jika ada di antara Sobat Pesona yang ingin melihat pemandangan luar biasa Candi Borobudur dari kejauhan, maka Sobat Pesona wajib mendatangi Punthuk Setumbu yang berlokasi di bagian barat Candi Borobudur. Di sini, Sobat Pesona juga bisa menyaksikan indahnya matahari terbit atau terbenam di masing-masing ufuk.</p>
+                            <p className="text-slate-600" dangerouslySetInnerHTML={{ __html: destination.body }}></p>
                         </div>
+
+                        {/* DETAIL DESTINATION  */}
                         <div className="mt-10">
-                            <div className="my-8">
-                                <h1 className='font-semibold text-xl text-slate-700 mb-4'>Patung Burung Perkutut</h1>
-                                <img src="https://www.indonesia.travel/content/dam/indtravelrevamp/en/destinations/java/central-java/magelang-regency/point-of-interest/gereja-ayam.jpg" alt="detail img" className='w-[400px]' />
-                                <p className='mt-7'>Tak hanya menawarkan keajaiban dunia, di sini Sobat Pesona juga bisa menemukan beraneka ragam objek wisata lainnya yang tidak kalah menarik. Di sekitar candi, terdapat tiga museum yang Sobat Pesona bisa kunjungi untuk menambah wawasan, yaitu Museum Borobudur, Museum Kapal Samudraraksa, dan Museum MURI. Jika ada di antara Sobat Pesona yang ingin melihat pemandangan luar biasa Candi Borobudur dari kejauhan, maka Sobat Pesona wajib mendatangi Punthuk Setumbu yang berlokasi di bagian barat Candi Borobudur. Di sini, Sobat Pesona juga bisa menyaksikan indahnya matahari terbit atau terbenam di masing-masing ufuk.</p>
-                            </div>
-                            <div className="my-8">
-                                <h1 className='font-semibold text-xl text-slate-700 mb-4'>Patung Burung Perkutut</h1>
-                                <img src="https://www.indonesia.travel/content/dam/indtravelrevamp/en/destinations/java/central-java/magelang-regency/point-of-interest/gereja-ayam.jpg" alt="detail img" className='w-[400px]' />
-                                <p className='mt-7'>Tak hanya menawarkan keajaiban dunia, di sini Sobat Pesona juga bisa menemukan beraneka ragam objek wisata lainnya yang tidak kalah menarik. Di sekitar candi, terdapat tiga museum yang Sobat Pesona bisa kunjungi untuk menambah wawasan, yaitu Museum Borobudur, Museum Kapal Samudraraksa, dan Museum MURI. Jika ada di antara Sobat Pesona yang ingin melihat pemandangan luar biasa Candi Borobudur dari kejauhan, maka Sobat Pesona wajib mendatangi Punthuk Setumbu yang berlokasi di bagian barat Candi Borobudur. Di sini, Sobat Pesona juga bisa menyaksikan indahnya matahari terbit atau terbenam di masing-masing ufuk.</p>
-                            </div>
+                            {destination.destination_detail?.map((detail, index) => (
+                                <div className="my-8" key={detail.id}>
+                                    <h1 className='font-semibold text-xl text-slate-700 mb-4 capitalize'>{detail.name}</h1>
+                                    <img src={detail.thumbnail} alt="detail img" className='w-[400px]' />
+                                    <p className='mt-7 text-slate-600'>{detail.description}</p>
+                                </div>
+                            ))}
+                         
                         </div>
+                        {/*  END DETAIL  */}
+
                     </div>
                     <div className="lg:order-1 order-0">
                         <h1 className='font-semibold text-xl text-slate-700 mb-4'>Sejarah Singkat</h1>
                         <div className="">
-                            <p className='text-sm'>Candi legendaris ini diperkirakan dibangun pada abad ke-8, tepatnya sekitar tahun 750-an masehi pada masa pemerintahan dinasti Syailendra. Pembangunannya diperkirakan berlangsung sekitar 75 tahun sampai akhirnya rampung pada saat pemerintahan raja Samaratungga berlangsung. Candi Borobudur terletak diatas bukit hijau yang asri di mana Sobat Pesona bisa menyaksikan bukit-bukit hijau lain di sekitarnya. Bangunannya sendiri terdiri atas jutaan blok batu yang dibuat kedalam tiga struktur yang menggambarkan tingkatan alam semesta menurut filsafat Buddha. Bangunan kolosal ini juga dihiasi oleh 2.672 panel relief dan 504 patung Buddha. Terjadinya erupsi Gunung Merapi yang dahsyat pada sekitar tahun 1006 menyebabkan Candi Borobudur tertimbun oleh debu vulkanik selama ratusan tahun lamanya. Beberapa abad kemudian, Candi Borobudur akhirnya ditemukan kembali pada tahun 1814 oleh seorang insinyur Belanda bernama Hermanus Christiaan Cornelius, ketika kerajaan Inggris yang diwakili oleh Thomas Stamford Raffles menduduki beberapa bagian pulau Jawa, termasuk Jawa Tengah. Setelah Indonesia merdeka, pada akhir tahun 60-an pemerintah bekerja sama dengan UNESCO untuk merenovasi Candi Borobudur selama bertahun-tahun, sampai akhirnya UNESCO menetapkan mahakarya agung tersebut sebagai Situs Warisan Dunia di tahun 1991.</p>
+                            <p className='text-sm text-slate-600'>{destination.short_history}</p>
                         </div>
                         <hr className='mt-5'/>
 
@@ -64,9 +81,15 @@ export default function () {
                 </div>
                 <div className="images my-10">
                     <h1 className='font-semibold text-xl text-slate-700 mb-4'>Gambar Terkait</h1>
-                    <div className="flex gap-5">
-                        <img src="https://www.indonesia.travel/content/dam/indtravelrevamp/en/destinations/revision-2019/image1.jpg" alt="image" className='w-[230px] h-[230px] object-cover'/>
-                        <img src="https://www.indonesia.travel/content/dam/indtravelrevamp/en/destinations/revision-2019/image1.jpg" alt="image" className='w-[230px] h-[230px] object-cover'/>
+                    <div className="flex gap-5 overflow-auto">
+                        {images.map((image, index) => (
+                            <img
+                                key={index}
+                                src={image}
+                                alt={`Image ${index + 1}`}
+                                className="w-[230px] h-[230px] object-cover"
+                            />
+                        ))}
                     </div>
                 </div>
                 <div className="mt-20">
@@ -78,17 +101,20 @@ export default function () {
                                 <button className='bg-slate-500 text-white px-5 py-2 rounded-md mt-3 text-sm'>Submit</button>
                             </div>
                             <hr className='my-5'/>
-                            <div class="content">
-                                <div class="flex gap-4">
-                                    <img src="https://www.indonesia.travel/content/dam/indtravelrevamp/en/destinations/revision-2019/image1.jpg" alt="image" className='object-cover w-[50px] h-[50px] rounded-full'/>
-                                    <div class="">
+                            <div className="content">
+                                <div className="flex gap-4">
+                                    <img src="https://www.indonesia.travel/content/dam/indtravelrevamp/en/destinations/revision-2019/image1.jpg" alt="image" className='object-cover lg:w-[50px] w-[40px] lg:h-[50px] h-[40px] rounded-full'/>
+                                    <div className="">
                                         <h1 className='font-semibold text-slate-600'>Yasz Avellia</h1>
                                         <p className='text-xs tracking-wide text-slate-500'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis voluptatum minima quidem perferendis optio quaerat soluta earum quo maxime dolores pariatur, architecto consequuntur repudiandae voluptatibus tempore! Distinctio animi nemo a?</p>
                                         <div className="flex items-center gap-3 mt-3">
                                             <button className='text-xs'>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-heart"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
                                             </button>
                                             <p className='text-xs text-slate-500'>13 Minutes Ago</p>
+                                            <button className='text-xs ms-auto'>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-trash-2"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>
+                                            </button>
                                         </div>
                                     </div>
 
@@ -112,7 +138,7 @@ export default function () {
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
         </>
     );
 }
