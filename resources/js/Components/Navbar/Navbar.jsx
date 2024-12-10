@@ -4,7 +4,7 @@ export default function () {
             <div className="w-full bg-orange-50 h-[50px] flex items-center justify-center">
                 <p className="text-sm text-slate-400 tracking-wide">
                     Ada tempat baru nih! Yuk kunjungi sekarang!{" "}
-                    <a href="" className="text-orange-400">
+                    <a href="" className="text-orange-400 hover:underline">
                         Klik disini
                     </a>
                 </p>
@@ -54,13 +54,13 @@ export default function () {
                     <div className="">
                         <a
                             href="/auth/login"
-                            className="border border-orange-600 px-6 py-3 text-sm text-orange-600"
+                            className="border border-orange-600 px-6 py-3 text-sm text-orange-600 hover:border-orange-700 hover:text-orange-700 transition-all"
                         >
                             Masuk
                         </a>
                         <a
                             href="/auth/register"
-                            className="border border-orange-600 bg-orange-600 px-6 py-3 text-white text-sm ms-2"
+                            className="border border-orange-600 bg-orange-600 px-6 py-3 text-white text-sm ms-2 hover:border-orange-700 hover:bg-orange-700 transition-all"
                         >
                             Daftar
                         </a>
@@ -68,5 +68,5 @@ export default function () {
                 </div>
             </nav>
         </>
-    )
+    );
 }
