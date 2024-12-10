@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('province_id')->nullable();
             $table->foreign('province_id')->references('id')->on('provinces');
 
+            $table->string('operational')->nullable();
             $table->string('name')->nullable();
             $table->string('tagline')->nullable();
             $table->string('slug')->nullable();
