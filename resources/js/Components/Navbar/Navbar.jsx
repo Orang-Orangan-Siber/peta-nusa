@@ -57,14 +57,14 @@ export default function () {
                     </div>
 
                     {auth.user ? (
-                        <div className="lg:block md:block hidden">
+                        <div className="lg:block md:block hidden text-sm">
                             <Link 
-                    href="/auth/logout" 
-                    method="post"  // Penting: menggunakan method POST
-                    as="button"    // Render sebagai tombol
-                >
-                    Logout
-                </Link>
+                                href="/auth/logout" 
+                                method="post"  // Penting: menggunakan method POST
+                                as="button"    // Render sebagai tombol
+                            >
+                                Logout
+                            </Link>
                         </div>
                     ) : (
 

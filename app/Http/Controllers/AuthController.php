@@ -28,9 +28,9 @@ class AuthController extends Controller
 
             return response()->json(['message' => 'Berhasil login!'], 200);
 
-        } else {
-            return back()->withErrors(['LoginError' => "Email atau password anda salah"]);
         }
+        
+        return back()->withErrors(['LoginError' => "Email atau password anda salah"]);
 
 
     }

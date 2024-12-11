@@ -19,14 +19,36 @@ class IndexController extends Controller
 
         $destination = Destination::with(['destinationDetail', 'province'])->where('slug', $slug)->first();
 
-        // dd($destination->destinationDetail);
-
         if(!$destination){
             abort(404);
         }
 
+        // GET 2 PLACE 
+        $get2Destination = Destination::take(2)->get();
+        // where('id', '!=', $destination->id)->
+        // dd($get2Destination);
+
+
+        // CEK BOOKMARK 
+        $isBookmark = false;
+        
+        if(Auth::user()){
+            $bookmark = Bookmark::where('user_id', Auth::user()->id)->first();
+
+            if($bookmark){
+                $isBookmark = true;
+            }
+
+        }
+
+        // dd($destination->destinationDetail);
+
+     
+
         return Inertia::render('Client/Detail', [
-            'destination' => $destination->toArray()
+            'destination' => $destination->toArray(),
+            'isBookmark' => $isBookmark,
+            'get2Destination' => $get2Destination
         ]);
     }
 

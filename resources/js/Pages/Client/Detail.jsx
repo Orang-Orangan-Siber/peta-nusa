@@ -7,8 +7,11 @@ import { useRef, useState } from "react";
 export default function () {
 
     const { props } = usePage(); 
-    const { destination } = props;
+    const { auth } = usePage().props
+    const { destination, isBookmark, get2Destination } = props;
     const images = JSON.parse(destination.images)
+
+
 
     const nama = useRef();
     const email = useRef();
@@ -44,7 +47,7 @@ export default function () {
             <Navbar/>
 
             <header className="header bg-slate-500 h-[300px] w-full overflow- relative z-10">
-                <img src="https://www.indonesia.travel/content/dam/indtravelrevamp/en/destinations/revision-2019/4.jpg" alt="" className='object-cover h-[300px] w-full' />
+                <img src={destination.thumbnail} alt="" className='object-cover h-[300px] w-full' />
                 <div className="flex justify-center w-full z-10">
                     <div className="w-[80%] h-[80px] bg-white shadow rounded-md absolute bottom-[-40px] border">
                         <div className="flex justify-around items-center h-full">
@@ -68,19 +71,33 @@ export default function () {
                             </div>
                             <div className="text-center">
                                 <h1 className='text-sm'>Bookmark</h1>
-                                {!isAdded ? (
-                                    <button
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            handleAddBookmark();
-                                        }}
-                                        className="font-semibold text-sm px-4 text-orange-500"
-                                    >
-                                        Tambah +
-                                    </button>
-                                    ) : (
+
+
+                           {auth.user ? (
+                                isBookmark ? (
                                     <p className="text-xs text-orange-500">Telah ditambahkan</p>
-                                )}
+                                ) : (
+                                    !isAdded ? (
+                                        <button
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                handleAddBookmark();
+                                            }}
+                                            className="font-semibold text-sm px-4 text-orange-500"
+                                        >
+                                            Tambah +
+                                        </button>
+                                    ) : (
+                                        <p className="text-xs text-orange-500">Telah ditambahkan</p>
+                                    )
+                                )
+                            ) : (
+                                <p className="text-xs text-orange-500">Silahkan Login</p>
+                            )}
+
+
+
+
                             </div>
                         </div>
                     </div>
@@ -165,16 +182,20 @@ export default function () {
                         
                         <div className="recomend lg:block hidden">
                             <h1 className='font-semibold text-xl text-slate-700 mb-7'>Tempat Lainnya</h1>
-                            <a href='' className="block mb-6">
-                                <img src="https://www.indonesia.travel/content/dam/indtravelrevamp/en/destinations/revision-2019/image1.jpg" alt="image" className='w-full object-cover h-[160px]'/>
-                                <p className='text-md text-center font-semibold text-slate-600 mt-2 leading-[1.2]'>Borobudur Temple</p>
-                                <hr className='my-3'/>
-                            </a>
-                            <a href='' className="block mb-6">
-                                <img src="https://www.indonesia.travel/content/dam/indtravelrevamp/en/destinations/revision-2019/image1.jpg" alt="image" className='w-full object-cover h-[160px]'/>
-                                <p className='text-md text-center font-semibold text-slate-600 mt-2 leading-[1.2]'>Borobudur Temple</p>
-                                <hr className='my-3'/>
-                            </a>
+                                {get2Destination.map((destination, index) => (
+                                    <a href={`/detail/`+destination.slug} key={index} className="block mb-6">
+                                        <img 
+                                            src={destination.thumbnail} 
+                                            alt={destination.name} 
+                                            className="w-full object-cover h-[160px]" 
+                                        />
+                                        <p className="text-md text-center font-semibold text-slate-600 mt-2 leading-[1.2]">
+                                            {destination.name}
+                                        </p>
+                                        <hr className="my-3" />
+                                    </a>
+                                ))}
+
                         </div>
                     </div>
                 </div>
