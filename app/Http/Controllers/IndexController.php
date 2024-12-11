@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Bookmark;
 use App\Models\Destination;
+use App\Models\Message;
 use Inertia\Inertia;
 
 use Illuminate\Http\Request;
@@ -12,7 +13,15 @@ use Illuminate\Support\Facades\Auth;
 class IndexController extends Controller
 {
     public function LandingPage() {
-        return Inertia::render('Client/LandingPage');
+        $messages = null;
+
+        if(Auth::user()){
+            $messages = Message::where('user_id', Auth::user()->id)->get();
+        }
+
+        return Inertia::render('Client/LandingPage', [
+            'messages' => $messages
+        ]);
     }
 
     public function detailDestination($slug) {

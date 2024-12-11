@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookmarkController;
+use App\Http\Controllers\ChatbotController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\IndexController;
 use Illuminate\Support\Facades\Route;
@@ -15,6 +16,7 @@ Route::post('/auth/register', [AuthController::class, 'registerPost']);
 Route::post('/auth/logout', [AuthController::class, 'destroy']);
 
 Route::get('/', [IndexController::class, 'LandingPage'])->name('home');
+Route::post('/', [ChatbotController::class, 'addNewMessages']);
 Route::get('/detail/{slug}', [IndexController::class, 'detailDestination']);
 
 // Comment 

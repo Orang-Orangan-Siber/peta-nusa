@@ -1,11 +1,14 @@
 import React from "react";
 import { Link, usePage } from "@inertiajs/react";
+import Chatbot from "../Chatbot/Chatbot";
 
 export default function () {
     const { auth } = usePage().props;
 
     return (
         <>
+        <Chatbot/>
+
             <div className="w-full bg-orange-50 h-[50px] flex items-center justify-center">
                 <p className="lg:text-sm text-xs text-slate-400 tracking-wide">
                     Ada tempat baru nih! Yuk kunjungi sekarang!{" "}
