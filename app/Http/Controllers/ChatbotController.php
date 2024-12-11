@@ -6,9 +6,22 @@ use App\Models\Message;
 use GeminiAPI\Laravel\Facades\Gemini;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Inertia\Inertia;
 
 class ChatbotController extends Controller
 {
+
+    public function getChatMessage() {
+        $messages = null;
+
+        if(Auth::user()){
+            $messages = Message::where('user_id', Auth::user()->id)->get();
+        }
+
+        return response()->json(['message' => 'Berhasil mengambil pesan', 'messages' => $messages], 200);
+     
+    }
+
     public function addNewMessages(Request $request) {
 
         $messages = Message::where('user_id', Auth::user()->id)->get();

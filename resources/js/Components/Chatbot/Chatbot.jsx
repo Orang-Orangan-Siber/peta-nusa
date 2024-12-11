@@ -13,17 +13,22 @@ export default function () {
 
     // Handle Add New Messages 
 
+    const baseUrl = window.location.origin;
     const [messages, setMessages] = useState(props.messages || []); 
-
     const currentURL = window.location.href;
+
+    axios.get(`${baseUrl}/data/getChatMessage`)
+    .then((res) => {
+        setMessages(res.data.messages)
+    })
+    .catch((res) => {
+        console.error(res.response.data);
+    });
+
+   
 
     const prompt = useRef(null);
 
-    const handleClearInput = () => {
-        if (inputRef.current) {
-            inputRef.current.value = ""; // Menghapus nilai input
-        }
-    };
     const handleNewMessage = async (val) => {
         try {
             if(!val){
@@ -46,7 +51,7 @@ export default function () {
             `;
             
             await axios
-                .post(`${currentURL}`, {
+                .post(`${baseUrl}`, {
                     "prompt": val
                 })
                 .then((res) => {

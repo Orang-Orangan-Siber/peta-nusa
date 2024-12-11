@@ -16,8 +16,9 @@ Route::post('/auth/register', [AuthController::class, 'registerPost']);
 Route::post('/auth/logout', [AuthController::class, 'destroy']);
 
 Route::get('/', [IndexController::class, 'LandingPage'])->name('home');
-Route::post('/', [ChatbotController::class, 'addNewMessages']);
 Route::get('/detail/{slug}', [IndexController::class, 'detailDestination']);
+Route::get('/data/getChatMessage', [ChatbotController::class, 'getChatMessage']);
+Route::post('/', [ChatbotController::class, 'addNewMessages']);
 
 // Comment 
 Route::post('/detail/{slug}', [CommentController::class, 'addComment']);
