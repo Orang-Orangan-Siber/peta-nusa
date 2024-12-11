@@ -1,15 +1,15 @@
-import React from 'react'
-import { Link, usePage } from '@inertiajs/react'
+import React from "react";
+import { Link, usePage } from "@inertiajs/react";
 
 export default function () {
-    const { auth } = usePage().props
+    const { auth } = usePage().props;
 
     return (
         <>
             <div className="w-full bg-orange-50 h-[50px] flex items-center justify-center">
                 <p className="lg:text-sm text-xs text-slate-400 tracking-wide">
                     Ada tempat baru nih! Yuk kunjungi sekarang!{" "}
-                    <a href="" className="text-orange-400">
+                    <a href="" className="text-orange-400 hover:underline">
                         Klik disini
                     </a>
                 </p>
@@ -62,12 +62,12 @@ export default function () {
                                 href="/auth/logout" 
                                 method="post"  // Penting: menggunakan method POST
                                 as="button"    // Render sebagai tombol
+
                             >
                                 Logout
                             </Link>
                         </div>
                     ) : (
-
                         <div className="lg:block md:block hidden">
                             <a
                                 href="/auth/login"
@@ -83,9 +83,8 @@ export default function () {
                             </a>
                         </div>
                     )}
-
                 </div>
             </nav>
         </>
-    )
+    );
 }

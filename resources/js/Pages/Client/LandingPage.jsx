@@ -28,7 +28,6 @@ export default function () {
     return (
         <div className="">
             <Navbar />
-
             <section id="hero">
                 <div className="flex justify-between items-end mt-10">
                     <div className="mt-10">
@@ -141,7 +140,6 @@ export default function () {
                     </div>
                 </div>
             </section>
-
             <div className="bg-slate-100 w-full my-36">
                 <div className="flex items-center justify-center opacity-[40%] py-5 gap-10">
                     <img
@@ -166,7 +164,6 @@ export default function () {
                     />
                 </div>
             </div>
-
             <section id="pictures">
                 <div className="my-36 flex justify-center gap-10">
                     <div className="w-[340px] h-[500px] bg-slate-500 rounded-xl overflow-hidden img-container">
@@ -217,7 +214,6 @@ export default function () {
                 {/* <h5 className="text-[50px]">ELAINA CANTIK</h5> */}
                 {/* <img src="https://www.papuaparadise.com/wp-content/uploads/2017/09/bungalows-1200x800.jpg" alt="img hero" width="100%" className="keren" /> */}
             </section>
-
             <section className="w-full bg-black h-[900px] m-0 relative p-10 ">
                 <img
                     src="https://www.papuaparadise.com/wp-content/uploads/2017/09/bungalows-1200x800.jpg"
@@ -243,75 +239,79 @@ export default function () {
                                 : "opacity-0 translate-y-10"
                         }`}
                     >
-                        Lorem, ipsum dolor sit amet consectetur adipisicing
-                        elit. Quam inventore numquam quis aspernatur molestias
-                        deserunt alias nobis vitae quia nemo! Lorem ipsum dolor
-                        sit amet consectetur adipisicing elit. Quo, quis.
+                        Rencanakan perjalanan Anda dengan mudah dan temukan
+                        pengalaman tak terlupakan di setiap sudut Indonesia.
+                        Nikmati keindahan alam, budaya, dan kuliner terbaik dari
+                        Sabang sampai Merauke.
                     </p>
                 </div>
 
-                <div class="flex w-full h-2/3 gap-2 z-10 relative">
+                <div class="flex w-full h-2/3 gap-3 z-10 relative">
                     <div className="w-1/4 flex flex-col gap-2">
                         <img
-                            src="https://www.papuaparadise.com/wp-content/uploads/2017/09/bungalows-1200x800.jpg"
+                            src="https://img.freepik.com/free-photo/man-lake-ride-sup-board_72229-1391.jpg?t=st=1733840470~exp=1733844070~hmac=8026fffa2e75565c49ac620776405e40bbdca395c0856e329b120b493436727d&w=996"
                             alt="img hero"
                             className="w-full h-4/5 object-cover rounded-lg"
                         />
                         <div className="w-full h-1/5 pt-2">
                             <h3 className="text-white font-semibold text-lg">
-                                Pulau Gading
+                                Danau Toba
                             </h3>
                             <p className="text-white opacity-80 text-base">
-                                Lorem ipsum dolor sit amet consectetur,
-                                adipisicing elit. Consectetur, architecto.
+                                Danau vulkanik terbesar di Asia Tenggara,
+                                menawarkan pemandangan indah dan budaya Batak
+                                yang kaya.
                             </p>
                         </div>
                     </div>
                     <div className="w-1/4 flex flex-col gap-2">
                         <img
-                            src="https://www.papuaparadise.com/wp-content/uploads/2017/09/bungalows-1200x800.jpg"
+                            src="https://img.freepik.com/free-photo/mountainous-landscape-with-volcano_1150-18285.jpg?t=st=1733840731~exp=1733844331~hmac=bcf6b18f5ade1028f3cdd9d352288c242665879a62c21249c59ac7d627c0952f&w=360"
                             alt="img hero"
                             className="w-full h-4/5 object-cover rounded-lg"
                         />
                         <div className="w-full h-1/5 pt-2">
                             <h3 className="text-white font-semibold text-lg">
-                                Pulau Gading
+                                Kawah Ijen
                             </h3>
                             <p className="text-white opacity-80 text-base">
-                                Lorem ipsum dolor sit amet consectetur,
-                                adipisicing elit. Consectetur, architecto.
+                                Gunung dengan pemandangan yang unik. Saksikan
+                                keindahan kawah hijau dan fenomena api biru yang
+                                memukau.
                             </p>
                         </div>
                     </div>
                     <div className="w-1/4 flex flex-col gap-2">
                         <img
-                            src="https://www.papuaparadise.com/wp-content/uploads/2017/09/bungalows-1200x800.jpg"
+                            src="https://cdn1-production-images-kly.akamaized.net/VEQfFu1vEW4Y6iQysNKhAf-bApY=/500x667/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/3237606/original/098140300_1600083527-79733397_190837218765304_7097785988066329390_n.jpg"
                             alt="img hero"
                             className="w-full h-4/5 object-cover rounded-lg"
                         />
                         <div className="w-full h-1/5 pt-2">
                             <h3 className="text-white font-semibold text-lg">
-                                Pulau Gading
+                                Pantai Pink
                             </h3>
                             <p className="text-white opacity-80 text-base">
-                                Lorem ipsum dolor sit amet consectetur,
-                                adipisicing elit. Consectetur, architecto.
+                                Pasir pink yang langka dan air sebening kristal
+                                menunggu untuk kamu jelajahi. Surga kecil ini
+                                hanya ada di Lombok!
                             </p>
                         </div>
                     </div>
                     <div className="w-1/4 flex flex-col gap-2">
                         <img
-                            src="https://www.papuaparadise.com/wp-content/uploads/2017/09/bungalows-1200x800.jpg"
+                            src="https://i2.wp.com/blog.tripcetera.com/id/wp-content/uploads/2020/01/pantai-tanjung-kelayang-credit-image-@v_johni.jpg"
                             alt="img hero"
                             className="w-full h-4/5 object-cover rounded-lg"
                         />
                         <div className="w-full h-1/5 pt-2">
                             <h3 className="text-white font-semibold text-lg">
-                                Pulau Gading
+                                Pantai Tanjung Kelayang
                             </h3>
                             <p className="text-white opacity-80 text-base">
-                                Lorem ipsum dolor sit amet consectetur,
-                                adipisicing elit. Consectetur, architecto.
+                                Temukan keajaiban pantai dengan batu granit
+                                ikonik dan air biru tenang. Rasakan pesonanya di
+                                Belitung
                             </p>
                         </div>
                     </div>
@@ -322,19 +322,17 @@ export default function () {
                     className="w-full h-full object-cover opacity-15 absolute top-0 left-0 z-[-0]"
                 /> */}
             </section>
-
             <section className="py-16">
                 <div className="flex flex-row justify-evenly">
-                    <p className="w-1/5">The raja airport</p>
-                    <h2 className="w-[30%] font-semibold text-[34px]">
-                        The Unmatched Beauty of Archipelago
+                    <p className="w-1/5">Mulai Berjelajah</p>
+                    <h2 className="w-[30%] font-semibold text-[30px]">
+                        Eksplorasi Keindahan Alam Indonesia yang Tiada Tanding
                     </h2>
-                    <p className="w-1/4 text-justify">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Odit sed provident tempora dolorem molestiae, ab quos
-                        facilis placeat nulla labore aspernatur perspiciatis
-                        nobis, natus doloribus accusantium eveniet
-                        reprehenderit, soluta delectus?
+                    <p className="w-1/4 text-justify text-lg">
+                        Temukan berbagai tempat menakjubkan, seperti pantai
+                        pasir putih, pulau-pulau tersembunyi, hingga kawah
+                        berapi yang menantang. Setiap sudut Indonesia memberikan
+                        petualangan yang berbeda dan memikat.
                     </p>
                 </div>
                 <div className="flex flex-row justify-between items-end w-full py-2 mt-5 gap-3">
@@ -358,7 +356,7 @@ export default function () {
                         />
                         <div className="w-full bottom-0 left-0 h-1/5 absolute flex flex-col justify-end">
                             <p className="font-semibold bg-slate-700/15 text-slate-200 text-xl tracking-wide p-4 drop-shadow-md">
-                                Cari Lokasi Tujuanmu!
+                                Lihat & Review Tempat yang Sudah Dijelajahi
                             </p>
                         </div>
                     </div>
@@ -370,7 +368,7 @@ export default function () {
                         />
                         <div className="w-full bottom-0 left-0 h-1/5 absolute flex flex-col justify-end">
                             <p className="font-semibold bg-slate-700/15 text-slate-200 text-xl tracking-wide p-4 drop-shadow-md">
-                                Cari Lokasi Tujuanmu!
+                                Ngobrol dengan Chatbot Pendamping Perjalanan
                             </p>
                         </div>
                     </div>
