@@ -26,7 +26,7 @@ export default function () {
     };
     const handleNewMessage = async (val) => {
         try {
-            if(!prompt){
+            if(!val){
                 return false
             }
 
