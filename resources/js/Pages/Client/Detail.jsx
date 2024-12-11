@@ -1,5 +1,8 @@
 import Navbar from '@/Components/Navbar/Navbar'
 import { usePage } from "@inertiajs/react";
+import axios from "axios";
+import { useRef, useState } from "react";
+
 
 export default function () {
 
@@ -7,7 +10,33 @@ export default function () {
     const { destination } = props;
     const images = JSON.parse(destination.images)
 
-    console.log(destination.destinationDetail);
+    const nama = useRef();
+    const email = useRef();
+    const password = useRef();
+
+    // HANDLE ADD BOOKMARK 
+
+    const [isAdded, setIsAdded] = useState(false);
+    const currentURL = window.location.href;
+
+    const handleAddBookmark = async () => {
+        try {
+            await axios
+                .post(`${currentURL}/bookmark`)
+                .then((res) => {
+                    console.log(res)
+                    setIsAdded(true);
+                })
+                .catch((res) => {
+                    console.error(res.response.data);
+                });
+        } catch (err) {
+            console.error(err);
+        }
+    };
+
+
+
 
 
     return (
@@ -39,8 +68,19 @@ export default function () {
                             </div>
                             <div className="text-center">
                                 <h1 className='text-sm'>Bookmark</h1>
-                                {/* <p className='text-xs text-orange-500'>Telah ditambahkan</p> */}
-                                <button className='font-semibold text-sm px-4 text-orange-500'>Tambah +</button>
+                                {!isAdded ? (
+                                    <button
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            handleAddBookmark();
+                                        }}
+                                        className="font-semibold text-sm px-4 text-orange-500"
+                                    >
+                                        Tambah +
+                                    </button>
+                                    ) : (
+                                    <p className="text-xs text-orange-500">Telah ditambahkan</p>
+                                )}
                             </div>
                         </div>
                     </div>
