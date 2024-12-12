@@ -10,9 +10,9 @@ use Inertia\Inertia;
 
 
 Route::get('/auth/login', [AuthController::class, 'loginView'])->name('login');
-Route::post('/auth/login', [AuthController::class, 'loginPost']);
+Route::post('/auth/login', [AuthController::class, 'loginPost'])->name('login.post');
 Route::get('/auth/register', [AuthController::class, 'registerView']);
-Route::post('/auth/register', [AuthController::class, 'registerPost']);
+Route::post('/auth/register', [AuthController::class, 'registerPost'])->name('register.post');
 Route::post('/auth/logout', [AuthController::class, 'destroy']);
 
 Route::get('/', [IndexController::class, 'LandingPage'])->name('home');

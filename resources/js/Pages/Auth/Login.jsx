@@ -1,32 +1,25 @@
 import axios from "axios";
 import { useRef, useState } from "react";
 import React from 'react'
+import { useForm } from "@inertiajs/react";
 
 export default function () {
-    const email = useRef();
-    const password = useRef();
-
 
     const [showPassword, setShowPassword] = useState(false);
 
-    const handleLogIn = async (email, password) => {
-        try {
-            await axios
-                .post("http://127.0.0.1:8000/auth/login", {
-                    email,
-                    password,
-                })
-                .then((res) => {
-                    window.location.href="/"
-                })
-                .catch((res) => {
-                    console.error(res.response.data);
-                });
-        } catch (err) {
-            console.error(err);
-        }
-    };
+    const form = useForm({
+        email: "",
+        password: "",
+        remember_me: "",
+    });
 
+    const submit = (e) => {
+        e.preventDefault();
+        form.post(route("login.post"), {
+            onFinish: () => form.reset("password"),
+        });
+    };
+    
     return (
         <section className="bg-gray-50 m-0 lg:flex lg:flex-row">
             <div className="flex flex-col items-center justify-center px-6 py-8 md:h-screen lg:py-0 lg:w-1/2">
@@ -40,17 +33,15 @@ export default function () {
                         <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
                             Sign in to your account
                         </h1>
+                        {form.errors.LoginError && (
+                            <div className="w-full h-[50px] bg-red-100 text-red-500 flex items-center justify-center mt-2">
+                            {form.errors.LoginError}
+                            </div>
+                        )}
                         <form
                             className="space-y-4 md:space-y-6"
                             action="POST"
-                            onSubmit={(e) => {
-                                e.preventDefault();
-                                handleLogIn(
-                                    email.current.value,
-                                    password.current.value
-                                );
-                            }}
-                        >
+                            onSubmit={submit}>
                             <div>
                                 <label
                                     htmlFor="email"
@@ -63,10 +54,12 @@ export default function () {
                                     name="email"
                                     id="email"
                                     className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-1 focus:ring-orange-400 focus:border-orange-400 outline-none block w-full p-2.5 transition-all"
-                                    placeholder="name@company.com"
-                                    ref={email}
+                                    placeholder="example@gmail.com"
+                                    value={form.data.email}
+                                    onChange={(e) => form.setData("email", e.target.value)}
                                     required
                                 />
+                                {form.errors.email && <div className="text-red-500 text-sm mt-2">{form.errors.email}</div>}
                             </div>
                             <div className="relative">
                                 <label
@@ -75,15 +68,15 @@ export default function () {
                                 >
                                     Password
                                 </label>
-                                <input
-                                    ref={password}
+                                <input value={form.data.password} onChange={(e) => form.setData("password", e.target.value)}
                                     type={showPassword ? "text" : "password"}
                                     name="password"
                                     id="password"
-                                    placeholder="••••••••"
+                                    placeholder="••••••"
                                     className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-1 focus:ring-orange-400 focus:border-orange-400 block w-full p-2.5 outline-none transition-all pr-[46px]"
                                     required
                                 />
+                                {form.errors.password && <div className="text-red-500 text-sm mt-2">{form.errors.password}</div>}
                                 {showPassword ? (
                                     <svg
                                         width={30}
@@ -126,12 +119,11 @@ export default function () {
                             <div className="flex items-center justify-between">
                                 <div className="flex items-start">
                                     <div className="flex items-center h-5">
-                                        <input
+                                        <input value={form.data.remember_me} onChange={(e) => form.setData("remember_me", e.target.value)}
                                             id="remember"
                                             aria-describedby="remember"
                                             type="checkbox"
                                             className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-orange-300 cursor-pointer"
-                                            required=""
                                         />
                                     </div>
                                     <div className="ml-3 text-sm">
@@ -147,6 +139,7 @@ export default function () {
                             <button
                                 type="submit"
                                 className="w-full text-orange-500 border border-orange-400 hover:bg-orange-400 hover:text-white focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition-all duration-300"
+                                disabled={form.processing}
                             >
                                 Sign in
                             </button>

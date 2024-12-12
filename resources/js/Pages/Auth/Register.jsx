@@ -1,31 +1,24 @@
-import { useRef, useState } from "react";
-import React from 'react'
+import { useRef, useState , React} from "react";
+import { useForm } from "@inertiajs/react";
 
 export default function () {
-    const nama = useRef();
-    const email = useRef();
-    const password = useRef();
-
+ 
+    
     const [showPassword, setShowPassword] = useState(false);
 
-    const handleRegister = async (nama, email, password) => {
-        try {
-            await axios
-                .post("/auth/register", {
-                    name: nama,
-                    email,
-                    password,
-                })
-                .then((res) => {
-                    window.location.href="/"
-                })
-                .catch((res) => {
-                    console.error(res.response.data);
-                });
-        } catch (err) {
-            console.error(err);
-        }
+    const form = useForm({
+        name: "",
+        email: "",
+        password: "",
+    });
+
+    const submit = (e) => {
+        e.preventDefault();
+        form.post(route("register.post"), {
+            onFinish: () => form.reset("password"),
+        });
     };
+
 
     return (
         <section className="bg-gray-50 m-0 lg:flex lg:flex-row">
@@ -43,14 +36,7 @@ export default function () {
                         <form
                             className="space-y-4 md:space-y-6"
                             action="POST"
-                            onSubmit={(e) => {
-                                e.preventDefault();
-                                handleRegister(
-                                    nama.current.value,
-                                    email.current.value,
-                                    password.current.value
-                                );
-                            }}
+                            onSubmit={submit}
                         >
                             <div>
                                 <label
@@ -63,11 +49,13 @@ export default function () {
                                     type="text"
                                     name="nama"
                                     id="nama"
-                                    ref={nama}
+                                    value={form.data.name}
+                                    onChange={(e) => form.setData("name", e.target.value)}
                                     className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-1 focus:ring-orange-400 focus:border-orange-400 outline-none block w-full p-2.5 transition-all"
-                                    placeholder="Nama kamu..."
+                                    placeholder="John Doe"
                                     required
                                 />
+                                {form.errors.name && <div className="text-red-500 text-sm mt-2">{form.errors.name}</div>}
                             </div>
                             <div>
                                 <label
@@ -80,11 +68,13 @@ export default function () {
                                     type="email"
                                     name="email"
                                     id="email"
-                                    ref={email}
+                                    value={form.data.email}
+                                    onChange={(e) => form.setData("email", e.target.value)}
                                     className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-1 focus:ring-orange-400 focus:border-orange-400 outline-none block w-full p-2.5 transition-all"
-                                    placeholder="name@company.com"
+                                    placeholder="example@gmail.com"
                                     required
                                 />
+                                {form.errors.email && <div className="text-red-500 text-sm mt-2">{form.errors.email}</div>}
                             </div>
                             <div className="relative">
                                 <label
@@ -97,7 +87,8 @@ export default function () {
                                     type={showPassword ? "text" : "password"}
                                     name="password"
                                     id="password"
-                                    ref={password}
+                                    value={form.data.password}
+                                    onChange={(e) => form.setData("password", e.target.value)}
                                     placeholder="••••••••"
                                     className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-1 focus:ring-orange-400 focus:border-orange-400 block w-full p-2.5 outline-none transition-all pr-[46px]"
                                     required
@@ -140,9 +131,10 @@ export default function () {
                                         <path d="M12 15.75a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 0 0 0 7.5Z" />
                                     </svg>
                                 )}
+                                {form.errors.password && <div className="text-red-500 text-sm mt-2">{form.errors.password}</div>}
                             </div>
 
-                            <button
+                            <button disabled={form.processing}
                                 type="submit"
                                 className="w-full text-orange-500 border border-orange-400 hover:bg-orange-400 hover:text-white focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition-all duration-300"
                             >
