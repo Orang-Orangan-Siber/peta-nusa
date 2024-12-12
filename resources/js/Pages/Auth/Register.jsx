@@ -1,9 +1,7 @@
-import { useRef, useState , React} from "react";
+import { useRef, useState, React } from "react";
 import { useForm } from "@inertiajs/react";
 
 export default function () {
- 
-    
     const [showPassword, setShowPassword] = useState(false);
 
     const form = useForm({
@@ -19,7 +17,6 @@ export default function () {
         });
     };
 
-
     return (
         <section className="bg-gray-50 m-0 lg:flex lg:flex-row">
             <div className="flex flex-col items-center justify-center px-6 py-8 md:h-screen lg:py-0 lg:w-1/2 ">
@@ -31,7 +28,7 @@ export default function () {
                 <div className="w-full bg-white rounded-lg shadow  md:mt-0 sm:max-w-md xl:p-0 ">
                     <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                         <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
-                            Register your account
+                            Daftar Akun Kamu
                         </h1>
                         <form
                             className="space-y-4 md:space-y-6"
@@ -50,12 +47,18 @@ export default function () {
                                     name="nama"
                                     id="nama"
                                     value={form.data.name}
-                                    onChange={(e) => form.setData("name", e.target.value)}
+                                    onChange={(e) =>
+                                        form.setData("name", e.target.value)
+                                    }
                                     className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-1 focus:ring-orange-400 focus:border-orange-400 outline-none block w-full p-2.5 transition-all"
                                     placeholder="John Doe"
                                     required
                                 />
-                                {form.errors.name && <div className="text-red-500 text-sm mt-2">{form.errors.name}</div>}
+                                {form.errors.name && (
+                                    <div className="text-red-500 text-sm mt-2">
+                                        {form.errors.name}
+                                    </div>
+                                )}
                             </div>
                             <div>
                                 <label
@@ -69,12 +72,18 @@ export default function () {
                                     name="email"
                                     id="email"
                                     value={form.data.email}
-                                    onChange={(e) => form.setData("email", e.target.value)}
+                                    onChange={(e) =>
+                                        form.setData("email", e.target.value)
+                                    }
                                     className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-1 focus:ring-orange-400 focus:border-orange-400 outline-none block w-full p-2.5 transition-all"
                                     placeholder="example@gmail.com"
                                     required
                                 />
-                                {form.errors.email && <div className="text-red-500 text-sm mt-2">{form.errors.email}</div>}
+                                {form.errors.email && (
+                                    <div className="text-red-500 text-sm mt-2">
+                                        {form.errors.email}
+                                    </div>
+                                )}
                             </div>
                             <div className="relative">
                                 <label
@@ -88,7 +97,9 @@ export default function () {
                                     name="password"
                                     id="password"
                                     value={form.data.password}
-                                    onChange={(e) => form.setData("password", e.target.value)}
+                                    onChange={(e) =>
+                                        form.setData("password", e.target.value)
+                                    }
                                     placeholder="••••••••"
                                     className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-1 focus:ring-orange-400 focus:border-orange-400 block w-full p-2.5 outline-none transition-all pr-[46px]"
                                     required
@@ -131,22 +142,27 @@ export default function () {
                                         <path d="M12 15.75a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 0 0 0 7.5Z" />
                                     </svg>
                                 )}
-                                {form.errors.password && <div className="text-red-500 text-sm mt-2">{form.errors.password}</div>}
+                                {form.errors.password && (
+                                    <div className="text-red-500 text-sm mt-2">
+                                        {form.errors.password}
+                                    </div>
+                                )}
                             </div>
 
-                            <button disabled={form.processing}
+                            <button
+                                disabled={form.processing}
                                 type="submit"
                                 className="w-full text-orange-500 border border-orange-400 hover:bg-orange-400 hover:text-white focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition-all duration-300"
                             >
-                                Sign Up
+                                Daftar
                             </button>
                             <p className="text-sm font-light text-gray-500 text-center">
-                                Already have an account?{" "}
+                                Sudah punya akun?{" "}
                                 <a
                                     href="/auth/login"
                                     className="font-medium text-orange-600 hover:underline "
                                 >
-                                    Sign In
+                                    Masuk
                                 </a>
                             </p>
                         </form>
