@@ -6,9 +6,15 @@ use App\Models\Bookmark;
 use App\Models\Destination;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Inertia\Inertia;
 
 class BookmarkController extends Controller
 {
+
+    public function index() {
+        return Inertia::render('Client/Bookmarks');
+    }
+
     public function store(Request $request, $slug) {
         $destination = Destination::where('slug', $slug)->first();
 
