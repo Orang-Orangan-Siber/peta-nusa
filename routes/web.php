@@ -21,8 +21,8 @@ Route::get('/data/getChatMessage', [ChatbotController::class, 'getChatMessage'])
 Route::post('/', [ChatbotController::class, 'addNewMessages']);
 
 // Comment 
-Route::post('/detail/{slug}', [CommentController::class, 'addComment']);
-Route::delete('/detail/{id}', [CommentController::class, 'deleteComment']);
+Route::post('/detail/{slug}', [CommentController::class, 'addComment'])->name('comment.post');
+Route::delete('/detail/{id}', [CommentController::class, 'deleteComment'])->name('comment.delete');
 
 // Bookmarks 
 Route::get('/user/bookmarks', [BookmarkController::class, 'index']);

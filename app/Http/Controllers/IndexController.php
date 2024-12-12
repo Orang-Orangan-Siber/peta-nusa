@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bookmark;
+use App\Models\Comment;
 use App\Models\Destination;
 use App\Models\Message;
 use Inertia\Inertia;
@@ -13,15 +14,8 @@ use Illuminate\Support\Facades\Auth;
 class IndexController extends Controller
 {
     public function LandingPage() {
-        $messages = null;
 
-        if(Auth::user()){
-            $messages = Message::where('user_id', Auth::user()->id)->get();
-        }
-
-        return Inertia::render('Client/LandingPage', [
-            'messages' => $messages
-        ]);
+        return Inertia::render('Client/LandingPage');
     }
 
     public function detailDestination($slug) {
@@ -31,6 +25,9 @@ class IndexController extends Controller
         if(!$destination){
             abort(404);
         }
+
+        // GET KOMENTAR
+        $comments = Comment::with(['user'])->where('destination_id', $destination->id)->orderBy('created_at', 'desc')->get();
 
         // GET 2 PLACE 
         $get2Destination = Destination::take(2)->get();
@@ -50,14 +47,11 @@ class IndexController extends Controller
 
         }
 
-        // dd($destination->destinationDetail);
-
-     
-
         return Inertia::render('Client/Detail', [
             'destination' => $destination->toArray(),
             'isBookmark' => $isBookmark,
-            'get2Destination' => $get2Destination
+            'get2Destination' => $get2Destination,
+            'comments' => $comments,
         ]);
     }
 

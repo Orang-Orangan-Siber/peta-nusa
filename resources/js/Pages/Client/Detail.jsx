@@ -1,5 +1,5 @@
 import Navbar from '@/Components/Navbar/Navbar'
-import { usePage } from "@inertiajs/react";
+import { usePage, useForm } from "@inertiajs/react";
 import axios from "axios";
 import { useRef, useState } from "react";
 
@@ -8,26 +8,22 @@ export default function () {
 
     const { props } = usePage(); 
     const { auth } = usePage().props
-    const { destination, isBookmark, get2Destination } = props;
+    const { destination, isBookmark, get2Destination, comments : initialComments } = props;
     const images = JSON.parse(destination.images)
 
 
-
-    const nama = useRef();
-    const email = useRef();
-    const password = useRef();
 
     // HANDLE ADD BOOKMARK 
 
     const [isAdded, setIsAdded] = useState(false);
     const currentURL = window.location.href;
+    const baseUrl = window.location.host;
 
     const handleAddBookmark = async () => {
         try {
             await axios
                 .post(`${currentURL}/bookmark`)
                 .then((res) => {
-                    console.log(res)
                     setIsAdded(true);
                 })
                 .catch((res) => {
@@ -38,7 +34,52 @@ export default function () {
         }
     };
 
+    // HANDLE ADD KOMENTAR 
+    const [comments, setComments] = useState(initialComments);
 
+    const comment = useForm({
+        body: "",
+    });
+
+
+    const submit = async (e) => {
+        e.preventDefault();
+
+        await axios.post(`${currentURL}`, {
+            body: comment.data.body
+        })
+        .then((res) => {
+            const { data } = res 
+            setComments((prevComments) => [data.data, ...prevComments]);
+
+            comment.reset("body")
+        })
+        .catch((res) => {
+            console.error(res.response.data);
+        });
+       
+    };
+    
+    
+    // HANDLE DELETE KOMENTAR 
+    const handleDeleteComment = async (id) => {
+
+
+        if(!confirm("Apakah anda yakin ingin menghapus komentar?")){
+            return false
+        }
+        
+        await axios.delete(`/detail/${id}`)
+        .then((res) => {
+            window.location.reload()
+
+        })
+        .catch((res) => {
+            console.error(res.response.data);
+        });
+       
+    };
+    
 
 
 
@@ -152,30 +193,82 @@ export default function () {
                 <div className="mt-20">
                     <div className="grid lg:grid-cols-[8fr,4fr] grid-cols-1 gap-10">
                         <div className="comment-wrapper">
-                            <h1 className='font-semibold text-xl text-slate-700 mb-7'>Komentar</h1>
-                            <textarea name="" id="" className='border rounded-lg text-slate-600 w-full h-[80px] focus:outline-none py-3 px-5 bg-slate-100'></textarea>
-                            <div className="text-end">
-                                <button className='bg-slate-500 text-white px-5 py-2 rounded-md mt-3 text-sm'>Submit</button>
+                            <div className="">
+                                <h1 className='font-semibold text-xl text-slate-700 mb-7'>Komentar</h1>
+                                {auth.user ? (
+                                    <form 
+                                    action="POST"
+                                    onSubmit={submit}
+                                    >
+                                        <textarea className='border rounded-lg text-slate-600 w-full h-[80px] focus:outline-none py-3 px-5 bg-slate-100'
+                                        value={comment.data.body}
+                                        onChange={(e) =>
+                                            comment.setData("body", e.target.value)
+                                        }
+                                        ></textarea>
+                                        <div className="text-end">
+                                            <button disabled={comment.processing} className='bg-slate-500 text-white px-5 py-2 rounded-md mt-3 text-xs'>Submit</button>
+                                        </div>
+                                    </form>
+                                ) : (
+                                    <div className="text-center">
+                                        <h1 className='text-slate-500 text-sm tracking-wide'>Silahkan <a href="/auth/login" className='text-orange-500'>Masuk</a> Terlebih Dahulu</h1>
+                                    </div>
+                                )}
                             </div>
+
                             <hr className='my-5'/>
                             <div className="content">
-                                <div className="flex gap-4">
-                                    <img src="https://www.indonesia.travel/content/dam/indtravelrevamp/en/destinations/revision-2019/image1.jpg" alt="image" className='object-cover lg:w-[50px] w-[40px] lg:h-[50px] h-[40px] rounded-full'/>
-                                    <div className="">
-                                        <h1 className='font-semibold text-slate-600'>Yasz Avellia</h1>
-                                        <p className='text-xs tracking-wide text-slate-500'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis voluptatum minima quidem perferendis optio quaerat soluta earum quo maxime dolores pariatur, architecto consequuntur repudiandae voluptatibus tempore! Distinctio animi nemo a?</p>
+
+                            {comments.map((comment, index) => (
+                                <div key={index} className="flex gap-4 my-9">
+                                    <img 
+                                        src="https://i.ibb.co.com/crVZ11R/New-Project-38-D479-A6-E.webp" 
+                                        alt="image" 
+                                        className='object-cover lg:w-[50px] w-[40px] lg:h-[50px] h-[40px] rounded-full'
+                                    />
+                                    <div>
+                                        <h1 className='font-semibold text-slate-600 capitalize'>{comment.user.name}</h1>
+                                        <p className='text-xs tracking-wide text-slate-500'>{comment.body}</p>
                                         <div className="flex items-center gap-3 mt-3">
-                                            <button className='text-xs'>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-heart"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
-                                            </button>
-                                            <p className='text-xs text-slate-500'>13 Minutes Ago</p>
-                                            <button className='text-xs ms-auto'>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-trash-2"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>
-                                            </button>
+                                            <p className='text-xs text-slate-500'>
+                                                {new Date(comment.created_at).toLocaleDateString("id-ID", {
+                                                    year: "numeric",
+                                                    month: "long",
+                                                    day: "numeric",
+                                                })}
+                                            </p>
+                                            {auth.user && auth.user.id === comment.user.id && (
+                                                <button onClick={(e) => {
+                                                    e.preventDefault();
+                                                    handleDeleteComment(comment.id)
+                                                }} className="text-xs ms-5">
+                                                    <svg 
+                                                        xmlns="http://www.w3.org/2000/svg" 
+                                                        width="15" 
+                                                        height="15" 
+                                                        viewBox="0 0 24 24"  
+                                                        fill="none"  
+                                                        stroke="currentColor" 
+                                                        strokeWidth="1.25" 
+                                                        strokeLinecap="round" 
+                                                        strokeLinejoin="round" 
+                                                        className="lucide lucide-trash-2"
+                                                    >
+                                                        <path d="M3 6h18" />
+                                                        <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
+                                                        <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
+                                                        <line x1="10" x2="10" y1="11" y2="17" />
+                                                        <line x1="14" x2="14" y1="11" y2="17" />
+                                                    </svg>
+                                                </button>
+                                            )}
+
                                         </div>
                                     </div>
-
                                 </div>
+                            ))}
+
 
                             </div>
                         </div>

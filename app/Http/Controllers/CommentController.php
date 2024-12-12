@@ -23,7 +23,9 @@ class CommentController extends Controller
         $newComment->body = $request->body;
         $newComment->save();
 
-        return response()->json(['message' => 'Komentar berhasil ditambah!', 'data' => $newComment], 201);
+        $comment = Comment::with(['user'])->where('id', $newComment->id)->first();
+
+        return response()->json(['message' => 'Komentar berhasil ditambah!', 'data' => $comment], 201);
     }
 
     public function deleteComment($id) {

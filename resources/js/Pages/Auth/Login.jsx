@@ -20,7 +20,7 @@ export default function () {
     };
 
     return (
-        <section className="bg-gray-50 m-0 lg:flex lg:flex-row">
+        <section className="bg-gray-50 m-0 lg:flex lg:flex-row h-[100vh]">
             <div className="flex flex-col items-center justify-center px-6 py-8 md:h-screen lg:py-0 lg:w-1/2">
                 <img
                     src="https://i.ibb.co.com/XSmd6vF/peta-nusa-logo-2.png"
