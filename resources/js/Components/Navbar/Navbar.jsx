@@ -1,13 +1,21 @@
-import React from "react";
+import {React, useState } from "react";
 import { Link, usePage } from "@inertiajs/react";
 import Chatbot from "../Chatbot/Chatbot";
+import SideBarMobile from "./Mobile";
 
 export default function () {
     const { auth } = usePage().props;
 
+    const [sidebarMobile, setSidebarMobile] = useState(false);
+
+    const toggleSidebarMobile = () => {
+      setSidebarMobile(!sidebarMobile);
+    };
+  
     return (
         <>
         <Chatbot/>
+        <SideBarMobile isVisible={sidebarMobile} toggleSidebar={toggleSidebarMobile} />
 
             <div className="w-full bg-orange-50 h-[50px] flex items-center justify-center">
                 <p className="lg:text-sm text-xs text-slate-400 tracking-wide">
@@ -21,12 +29,14 @@ export default function () {
                 <div className="flex items-center justify-between lg:mx-16 mx-4">
                     <div className="navbar-brand flex items-center">
                         <a href="/" className="font-bold text-2xl">
-                            <img
-                                src="https://i.ibb.co.com/XSmd6vF/peta-nusa-logo-2.png"
-                                alt="logo"
-                                className="logo-brand flex-shrink-0 lg:w-[150px] w-[120px]"
-                            />
+                            <img src="https://i.ibb.co.com/XSmd6vF/peta-nusa-logo-2.png" alt="logo" className="logo-brand flex-shrink-0 lg:w-[150px] w-[130px]"/>
                         </a>
+                    </div>
+
+                    <div className="lg:hidden flex items-center">
+                        <button onClick={toggleSidebarMobile}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-chart-no-axes-gantt"><path d="M8 6h10"/><path d="M6 12h9"/><path d="M11 18h7"/></svg>
+                        </button>
                     </div>
 
                     <div className="lg:block hidden">
@@ -43,17 +53,12 @@ export default function () {
                             </li>
                             <li>
                                 <a href="" className=" hover:text-slate-900">
-                                    Event
-                                </a>
-                            </li>
-                            <li>
-                                <a href="" className=" hover:text-slate-900">
                                     Layanan
                                 </a>
                             </li>
                             <li>
                                 <a href="" className=" hover:text-slate-900">
-                                    Eksplorasi
+                                    Petualangan Saya
                                 </a>
                             </li>
                         </ul>
