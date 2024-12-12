@@ -1,8 +1,10 @@
-import Carousel from "@/Components/Carousel/Carousel";
 import { useState, useEffect, useRef } from "react";
 import Navbar from "@/Components/Navbar/Navbar";
+import Carousel from "@/Components/Carousel/Carousel";
+import SearchPlace from "@/Components/SearchPlace/SearchPlace";
 export default function () {
     const [visibleElements, setVisibleElements] = useState([]);
+    const [toggleSearch, setToggleSearch] = useState(true);
 
     useEffect(() => {
         const elements = document.querySelectorAll(".scroll-element");
@@ -29,6 +31,7 @@ export default function () {
     return (
         <div className="">
             <Navbar />
+            {toggleSearch && <SearchPlace setToggleSearch={setToggleSearch} />}
             <section id="hero">
                 <div className="flex justify-between items-end mt-10">
                     <div className="mt-10">
@@ -52,7 +55,10 @@ export default function () {
                                 <div className="border-orange-600 border w-max p-4 rounded-full">
                                     <div className="w-[5px] h-[5px] bg-orange-600 rounded-full"></div>
                                 </div>
-                                <p className="text-orange-600 text-sm tracking-wide">
+                                <p
+                                    className="text-orange-600 text-sm tracking-wide"
+                                    onClick={() => setToggleSearch(true)}
+                                >
                                     Explore with us
                                 </p>
                                 <svg
