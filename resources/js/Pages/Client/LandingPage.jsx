@@ -32,27 +32,27 @@ export default function () {
         <div className="">
             <Navbar />
             {toggleSearch && <SearchPlace setToggleSearch={setToggleSearch} />}
-            <section id="hero">
-                <div className="flex justify-between items-end mt-10">
-                    <div className="mt-10">
+            <section id="hero" className="lg:mx-16 md:mx-8 mx-6">
+                <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end md:mt-10 mt:0">
+                    <div className="md:mt-5 mt-10 w-full lg:w-auto">
                         <p className="bg-orange-200 text-orange-500 w-max px-3 py-1 rounded-full text-xs font-medium tracking-wide mb-2">
                             Cari Tempat Liburanmu
                         </p>
-                        <h1 className="font-semibold text-[50px] leading-[1.2]">
-                            Pesona Wisata <br /> Keindahan Indonesia !{" "}
+                        <h1 className="font-semibold text-3xl md:text-[40px] xl:text-[50px] leading-[1.2]">
+                            Pesona Wisata <br /> Keindahan Indonesia !
                         </h1>
-                        <p className="text-sm mt-5 text-slate-600">
+                        <p className="text-sm md:text-base lg:text-sm mt-5 text-slate-600">
                             Jelajahi Indonesia, negeri yang kaya akan
                             keberagaman budaya. Setiap langkah <br /> membawa
                             cerita unik, tradisi memikat, dan keindahan yang tak
                             tertandingi.
                         </p>
-                        <div className="mt-8">
+                        <div className="lg:mt-8 mt-5">
                             <div
                                 className="flex items-center gap-3 w-max group cursor-pointer"
                                 onClick={() => setToggleSearch(true)}
                             >
-                                <div className="border-orange-600 border w-max p-4 rounded-full">
+                                <div className="border-orange-600 border w-max md:p-4 p-3 rounded-full">
                                     <div className="w-[5px] h-[5px] bg-orange-600 rounded-full"></div>
                                 </div>
                                 <p className="text-orange-600 text-sm tracking-wide">
@@ -71,40 +71,33 @@ export default function () {
                                         d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0z"
                                     />
                                 </svg>
-
-                                {/* <div className="hidden group-hover:block absolute w-[90px] h-[40px] bg-orange-600">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#fff" className="bi bi-arrow-up-right" viewBox="0 0 16 16">
-                                        <path fillRule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0z"/>
-                                    </svg>
-                                </div> */}
                             </div>
-                            <button className=""></button>
                         </div>
-                        <div className="mt-10">
-                            <div className="flex items-center gap-6">
+                        <div className="w-full lg:mt-10 md:mt-8 mt-6">
+                            <div className="flex items-center justify-center lg:justify-normal md:gap-6 gap-2">
                                 <div className="text-center">
-                                    <h1 className="text-3xl font-semibold text-slate-800">
+                                    <h1 className="md:text-3xl text-2xl font-semibold text-slate-800">
                                         99+
                                     </h1>
-                                    <p className="text-xs text-slate-500 tracking-wider">
+                                    <p className="text-[10px] md:text-xs text-slate-500 tracking-wider">
                                         Daftar Pengguna
                                     </p>
                                 </div>
                                 <div className="w-[1px] h-[18px] bg-slate-600"></div>
                                 <div className="text-center">
-                                    <h1 className="text-3xl font-semibold text-slate-800">
+                                    <h1 className="md:text-3xl text-2xl font-semibold text-slate-800">
                                         24
                                     </h1>
-                                    <p className="text-xs text-slate-500 tracking-wider">
+                                    <p className="text-[10px] md:text-xs text-slate-500 tracking-wider">
                                         Dukungan Tempat
                                     </p>
                                 </div>
                                 <div className="w-[1px] h-[18px] bg-slate-600"></div>
                                 <div className="text-center">
-                                    <h1 className="text-3xl font-semibold text-slate-800">
+                                    <h1 className="md:text-3xl text-2xl font-semibold text-slate-800">
                                         50%
                                     </h1>
-                                    <p className="text-xs text-slate-500 tracking-wider">
+                                    <p className="md:text-xs text-[10px] text-slate-500 tracking-wider">
                                         Ulasan Pengguna
                                     </p>
                                 </div>
@@ -112,18 +105,18 @@ export default function () {
                         </div>
                     </div>
 
-                    <div className="relative w-[600px] h-[400px] overflow-hidden cursor-pointer group rounded-lg  ">
+                    <div className="relative w-full md:w-[600px] h-[300px] md:h-[400px] overflow-hidden cursor-pointer group rounded-lg mt-10 lg:mt-0 mx-auto lg:mx-0">
                         <img
                             src="https://www.papuaparadise.com/wp-content/uploads/2017/09/bungalows-1200x800.jpg"
                             alt="img hero"
-                            width="100%"
+                            className="w-full h-full object-cover"
                         />
-                        <div className="detail absolute bottom-[-140px] group-hover:bottom-[0] bg-white/30 backdrop-blur-sm w-full h-[140px] transition-all duration-700 ">
-                            <div className="p-5">
-                                <h1 className="text-white text-2xl tracking-wide">
+                        <div className="detail absolute -bottom-[120px] h-[120px] md:bottom-[-140px] group-hover:bottom-[0] bg-white/30 backdrop-blur-sm w-full md:h-[140px] transition-all duration-700">
+                            <div className="md:p-5 p-3">
+                                <h1 className="text-white text-lg md:text-2xl tracking-wide">
                                     Pantai Raja Ampat: Surga Tropis di Timur
                                 </h1>
-                                <div className="flex mt-1">
+                                <div className="flex mt-2 md:mt-1">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         width="16"
@@ -144,27 +137,27 @@ export default function () {
                     </div>
                 </div>
             </section>
-            <div className="bg-slate-100 w-full my-36">
-                <div className="flex items-center justify-center opacity-[40%] py-5 gap-10">
+            <div className="bg-slate-100 w-full lg:my-28 md:my-20 my-16">
+                <div className="flex items-center justify-center opacity-[40%] py-5 gap-6 md:gap-8 lg:gap-10">
                     <img
                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD6NiLBrpE5XvpewWqMsu-BadPFEvnO0XbdA&s"
                         alt="logo"
-                        width="100px"
+                        className="lg:w-[100px] md:w-[80px] w-[60px]"
                     />
                     <img
                         src="https://bob.kemenparekraf.go.id/wp-content/uploads/2021/03/logobob-vertikal.png"
                         alt="logo"
-                        width="100px"
+                        className="lg:w-[100px] md:w-[80px] w-[60px]"
                     />
                     <img
                         src="https://www.itdc.co.id/assets/frontend/images/Logo%20ITDC%20Footer-R01.png"
                         alt="logo"
-                        width="100px"
+                        className="lg:w-[100px] md:w-[80px] w-[60px]"
                     />
                     <img
                         src="https://upload.wikimedia.org/wikipedia/commons/0/06/Logo_of_the_Ministry_of_Environmental_Affairs_and_Forestry_of_the_Republic_of_Indonesia.svg"
                         alt="logo"
-                        width="100px"
+                        className="lg:w-[100px] md:w-[80px] w-[60px]"
                     />
                 </div>
             </div>
@@ -335,7 +328,7 @@ export default function () {
                     </p>
                     <h2
                         id="layanan-tengah"
-                        className={`w-[30%] font-semibold text-[30px] transition-all duration-[900ms] scroll-element ${
+                        className={`w-[30%] font-semibold text-[30px] transition-all delay-150 duration-[900ms] scroll-element ${
                             visibleElements.includes("layanan-tengah")
                                 ? "opacity-100 translate-y-0"
                                 : "opacity-0 translate-y-10"
@@ -345,7 +338,7 @@ export default function () {
                     </h2>
                     <p
                         id="layanan-kanan"
-                        className={`w-1/4 text-justify text-lg duration-[1100ms] scroll-element ${
+                        className={`w-1/4 text-justify text-lg duration-[1100ms] delay-300 scroll-element ${
                             visibleElements.includes("layanan-kanan")
                                 ? "opacity-100 translate-y-0"
                                 : "opacity-0 translate-y-10"
@@ -399,26 +392,26 @@ export default function () {
                 </div>
             </section>
 
-            <footer className="p-4 bg-white border-t-2 sm:p-6">
+            <footer className="md:p-4 p-3 bg-white border-t-2 sm:p-6">
                 <div className="mx-auto max-w-screen-xl">
                     <div className="md:flex md:justify-between">
                         <div className="mb-6 md:mb-0 flex items-start">
                             <img
                                 src="https://i.ibb.co.com/XSmd6vF/peta-nusa-logo-2.png"
-                                className="h-10"
+                                className="md:h-10 h-8"
                                 alt="PetaNusa Logo"
                             />
                         </div>
                         <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-2">
                             <div>
-                                <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase ">
+                                <h2 className="md:mb-6 mb-3 text-sm font-semibold text-gray-900 uppercase">
                                     TENTANG KAMI
                                 </h2>
                                 <ul className="text-gray-600 ">
-                                    <li className="mb-4">
+                                    <li className="md:mb-4 mb-1">
                                         <a
                                             href="https://github.com/Orang-Orangan-Siber"
-                                            className="hover:underline "
+                                            className="hover:underline text-sm md:text-base"
                                         >
                                             Tentang Peta Nusa
                                         </a>
@@ -426,7 +419,7 @@ export default function () {
                                     <li>
                                         <a
                                             href="mailto:randdevs54@gmail.com"
-                                            className="hover:underline"
+                                            className="hover:underline text-sm md:text-base"
                                         >
                                             Kontak Kami
                                         </a>
@@ -434,14 +427,14 @@ export default function () {
                                 </ul>
                             </div>
                             <div>
-                                <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase ">
+                                <h2 className="md:mb-6 mb-3 text-sm font-semibold text-gray-900 uppercase ">
                                     IKUTI KAMI
                                 </h2>
                                 <ul className="text-gray-600 ">
-                                    <li className="mb-4">
+                                    <li className="md:mb-4 mb-1">
                                         <a
                                             href="https://github.com/iyasz"
-                                            className="hover:underline"
+                                            className="hover:underline text-sm md:text-base"
                                         >
                                             Github
                                         </a>
@@ -449,7 +442,7 @@ export default function () {
                                     <li>
                                         <a
                                             href="https://www.instagram.com/yaszavellia/"
-                                            className="hover:underline"
+                                            className="hover:underline text-sm md:text-base"
                                         >
                                             Instagram
                                         </a>
@@ -458,12 +451,12 @@ export default function () {
                             </div>
                         </div>
                     </div>
-                    <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-                    <div className="sm:flex sm:items-center sm:justify-between">
+                    <hr className="md:my-6 my-4 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+                    <div className="flex flex-row items-center justify-between">
                         <span className="text-sm text-gray-500 sm:text-center ">
                             © 2024 Peta Nusa
                         </span>
-                        <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
+                        <div className="flex items-center space-x-6  sm:mt-0">
                             <a
                                 href="https://www.instagram.com/rafi_feranda/"
                                 className="text-gray-500 hover:scale-110 "
