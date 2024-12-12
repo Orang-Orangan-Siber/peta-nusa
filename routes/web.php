@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookmarkController;
+use App\Http\Controllers\ChatbotController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\IndexController;
 use Illuminate\Support\Facades\Route;
@@ -9,13 +10,15 @@ use Inertia\Inertia;
 
 
 Route::get('/auth/login', [AuthController::class, 'loginView'])->name('login');
-Route::post('/auth/login', [AuthController::class, 'loginPost']);
+Route::post('/auth/login', [AuthController::class, 'loginPost'])->name('login.post');
 Route::get('/auth/register', [AuthController::class, 'registerView']);
-Route::post('/auth/register', [AuthController::class, 'registerPost']);
+Route::post('/auth/register', [AuthController::class, 'registerPost'])->name('register.post');
 Route::post('/auth/logout', [AuthController::class, 'destroy']);
 
 Route::get('/', [IndexController::class, 'LandingPage'])->name('home');
 Route::get('/detail/{slug}', [IndexController::class, 'detailDestination']);
+Route::get('/data/getChatMessage', [ChatbotController::class, 'getChatMessage']);
+Route::post('/', [ChatbotController::class, 'addNewMessages']);
 
 // Comment 
 Route::post('/detail/{slug}', [CommentController::class, 'addComment']);

@@ -169,7 +169,7 @@ export default function () {
                 <div className="my-36 flex justify-center gap-10">
                     <div className="w-[340px] h-[500px] bg-slate-500 rounded-xl overflow-hidden img-container">
                         <img
-                            src="https://www.papuaparadise.com/wp-content/uploads/2017/09/bungalows-1200x800.jpg"
+                            src="https://static.promediateknologi.id/crop/0x443:1080x1594/0x0/webp/photo/p2/74/2024/07/23/Screenshot_20240723_133757-1777239886.jpg"
                             alt="img hero"
                             className="w-full h-full object-cover"
                         />
@@ -178,7 +178,7 @@ export default function () {
                         <div className="flex gap-10">
                             <div className="w-[260px] h-[300px] bg-slate-500 rounded-xl overflow-hidden img-container">
                                 <img
-                                    src="https://www.papuaparadise.com/wp-content/uploads/2017/09/bungalows-1200x800.jpg"
+                                    src="https://cdn1-production-images-kly.akamaized.net/VnEjXk8r4It9cjTdVzsBbDigrT4=/1200x900/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4705607/original/017465500_1704327428-0605-2019-095274612357121986427-01-HDR-2.jpg"
                                     alt="img hero"
                                     className="w-full h-full object-cover"
                                 />
@@ -186,14 +186,14 @@ export default function () {
                             <div className="flex flex-col gap-10">
                                 <div className="w-[400px] h-[130px] bg-slate-500 rounded-xl overflow-hidden img-container">
                                     <img
-                                        src="https://www.papuaparadise.com/wp-content/uploads/2017/09/bungalows-1200x800.jpg"
+                                        src="https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcTX-cGHDLFVp5tUu9rvafUCVzvsRtW15ArL6LEybdMH8V_tlHm1tE3XbO-hzZKZaNki39bHIQVAVKWtOH-mGlfOd5n_kws-d3vuO5EX-w"
                                         alt="img hero"
                                         className="w-full h-full object-cover"
                                     />
                                 </div>
                                 <div className="w-[400px] h-[130px] bg-slate-500 rounded-xl overflow-hidden img-container">
                                     <img
-                                        src="https://www.papuaparadise.com/wp-content/uploads/2017/09/bungalows-1200x800.jpg"
+                                        src="https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcQ9o6aN8EN8Vq-CxZynZKcDH_hqDXLQdDBlr_1kWP2lQFOCac4dcq7lVCJk6SzPFsPqrvQ4vmCS5TGmkfnZVsyGWTuVD2XTV15sl1KTlw"
                                         alt="img hero"
                                         className="w-full h-full object-cover"
                                     />
@@ -203,7 +203,7 @@ export default function () {
 
                         <div className="w-full h-[160px] bg-slate-500 rounded-xl overflow-hidden img-container">
                             <img
-                                src="https://www.papuaparadise.com/wp-content/uploads/2017/09/bungalows-1200x800.jpg"
+                                src="https://lh5.googleusercontent.com/p/AF1QipPpfGfo-URFdLvXf4sVa13JKsbBxvOs5w2VN0Hv=w675-h390-n-k-no"
                                 alt="img hero"
                                 className="w-full h-full object-cover"
                             />
@@ -250,7 +250,7 @@ export default function () {
                 <div class="flex w-full h-2/3 gap-3 z-10 relative">
                     <div className="w-1/4 flex flex-col gap-2">
                         <img
-                            src="https://img.freepik.com/free-photo/man-lake-ride-sup-board_72229-1391.jpg?t=st=1733840470~exp=1733844070~hmac=8026fffa2e75565c49ac620776405e40bbdca395c0856e329b120b493436727d&w=996"
+                            src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcT-1xEEM5OHDLDcVB6lL2zuUXvpmrwr-DG2l3wyabv3X9CkbbPKWCNCvcSUPhZ_PgXDPMhZyea4bd_-_Hlnu-I8hUngNHCAnFCOCp678A"
                             alt="img hero"
                             className="w-full h-4/5 object-cover rounded-lg"
                         />
@@ -317,19 +317,37 @@ export default function () {
                         </div>
                     </div>
                 </div>
-                {/* <img
-                    src="https://www.papuaparadise.com/wp-content/uploads/2017/09/bungalows-1200x800.jpg"
-                    alt="bg-image"
-                    className="w-full h-full object-cover opacity-15 absolute top-0 left-0 z-[-0]"
-                /> */}
             </section>
             <section className="py-16">
                 <div className="flex flex-row justify-evenly">
-                    <p className="w-1/5">Mulai Berjelajah</p>
-                    <h2 className="w-[30%] font-semibold text-[30px]">
+                    <p
+                        id="layanan-kiri"
+                        className={`w-1/5 transition-all duration-700 scroll-element ${
+                            visibleElements.includes("layanan-kiri")
+                                ? "opacity-100 translate-y-0"
+                                : "opacity-0 translate-y-10"
+                        }`}
+                    >
+                        Mulai Berjelajah
+                    </p>
+                    <h2
+                        id="layanan-tengah"
+                        className={`w-[30%] font-semibold text-[30px] transition-all duration-[900ms] scroll-element ${
+                            visibleElements.includes("layanan-tengah")
+                                ? "opacity-100 translate-y-0"
+                                : "opacity-0 translate-y-10"
+                        }`}
+                    >
                         Eksplorasi Keindahan Alam Indonesia yang Tiada Tanding
                     </h2>
-                    <p className="w-1/4 text-justify text-lg">
+                    <p
+                        id="layanan-kanan"
+                        className={`w-1/4 text-justify text-lg duration-[1100ms] scroll-element ${
+                            visibleElements.includes("layanan-kanan")
+                                ? "opacity-100 translate-y-0"
+                                : "opacity-0 translate-y-10"
+                        }`}
+                    >
                         Temukan berbagai tempat menakjubkan, seperti pantai
                         pasir putih, pulau-pulau tersembunyi, hingga kawah
                         berapi yang menantang. Setiap sudut Indonesia memberikan
@@ -351,7 +369,7 @@ export default function () {
                     </div>
                     <div className="flex-1 h-[392px] bg-black rounded-lg overflow-hidden relative">
                         <img
-                            src="https://img.freepik.com/free-photo/sunrise-lake-batur_1385-1765.jpg?t=st=1733802722~exp=1733806322~hmac=e9b7f9ed275146f0b139431267a82c11aef49071823b9aeff6adbd329d871407&w=996"
+                            src="https://cdngnfi2.sgp1.digitaloceanspaces.com/gnfi/uploads/articles/gunung-batur-bali-gunung-berapi-purba-indah-dengan-kawah-kalderanya-yang-menawan-40c9.jpg"
                             alt="img hero"
                             className="h-full object-cover absolute left-0 top-0"
                         />
@@ -363,7 +381,7 @@ export default function () {
                     </div>
                     <div className="flex-1 h-[392px] bg-black rounded-lg overflow-hidden relative">
                         <img
-                            src="https://img.freepik.com/free-photo/aerial-shot-small-island-with-few-buildings-boats-blue-dock_181624-12495.jpg?t=st=1733802491~exp=1733806091~hmac=a4698a5ad3aa654a4b8c18af21411f2b09957a3adcea44915b7f54ac006b52c8&w=900"
+                            src="https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcRCXK1xauVoJg31B6oqsctyzVOpVxfREcqeB6OoPQQXQNUGa1ihrXB84F1CFwkK2DUk4aBOrXv9LPV0U-MNIheApRKFoJRvx3lP7NmvfJA"
                             alt="img hero"
                             className="h-full object-cover absolute left-0 top-0"
                         />
@@ -374,18 +392,8 @@ export default function () {
                         </div>
                     </div>
 
-                    <div className="flex-[2] h-[392px] bg-black rounded-lg overflow-hidden relative">
-                        <img
-                            src="https://www.papuaparadise.com/wp-content/uploads/2017/09/bungalows-1200x800.jpg"
-                            alt="img hero"
-                            className="w-full h-full object-cover absolute left-0 top-0"
-                        />
-                    </div>
+                    <Carousel />
                 </div>
-            </section>
-
-            <section>
-                <Carousel />
             </section>
 
             <footer class="p-4 bg-white border-t-2 sm:p-6">

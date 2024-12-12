@@ -26,8 +26,7 @@ class AuthController extends Controller
         if(Auth::attempt($credentials, $remember)){
             $request->session()->regenerate();
 
-            return response()->json(['message' => 'Berhasil login!'], 200);
-
+            return redirect('/');
         }
         
         return back()->withErrors(['LoginError' => "Email atau password anda salah"]);
@@ -55,8 +54,7 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        return response()->json(['message' => 'Berhasil mendaftar!'], 201);
-
+        return redirect('/');
     }
 
     public function destroy(Request $request) {
