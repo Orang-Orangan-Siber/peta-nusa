@@ -4,7 +4,7 @@ import Carousel from "@/Components/Carousel/Carousel";
 import SearchPlace from "@/Components/SearchPlace/SearchPlace";
 export default function () {
     const [visibleElements, setVisibleElements] = useState([]);
-    const [toggleSearch, setToggleSearch] = useState(true);
+    const [toggleSearch, setToggleSearch] = useState(false);
 
     useEffect(() => {
         const elements = document.querySelectorAll(".scroll-element");
@@ -48,17 +48,14 @@ export default function () {
                             tertandingi.
                         </p>
                         <div className="mt-8">
-                            <a
-                                href=""
-                                className="flex items-center gap-3 w-max group"
+                            <div
+                                className="flex items-center gap-3 w-max group cursor-pointer"
+                                onClick={() => setToggleSearch(true)}
                             >
                                 <div className="border-orange-600 border w-max p-4 rounded-full">
                                     <div className="w-[5px] h-[5px] bg-orange-600 rounded-full"></div>
                                 </div>
-                                <p
-                                    className="text-orange-600 text-sm tracking-wide"
-                                    onClick={() => setToggleSearch(true)}
-                                >
+                                <p className="text-orange-600 text-sm tracking-wide">
                                     Explore with us
                                 </p>
                                 <svg
@@ -80,7 +77,7 @@ export default function () {
                                         <path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0z"/>
                                     </svg>
                                 </div> */}
-                            </a>
+                            </div>
                             <button className=""></button>
                         </div>
                         <div className="mt-10">
