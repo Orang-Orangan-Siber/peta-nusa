@@ -35,17 +35,7 @@ export default function () {
                             </li>
                             <li>
                                 <a href="" className=" hover:text-slate-900">
-                                    About
-                                </a>
-                            </li>
-                            <li>
-                                <a href="" className=" hover:text-slate-900">
-                                    Event
-                                </a>
-                            </li>
-                            <li>
-                                <a href="" className=" hover:text-slate-900">
-                                    Layanan
+                                    Infokan
                                 </a>
                             </li>
                             <li>
@@ -53,16 +43,20 @@ export default function () {
                                     Eksplorasi
                                 </a>
                             </li>
+                            <li>
+                                <a href="" className=" hover:text-slate-900">
+                                    Layanan
+                                </a>
+                            </li>
                         </ul>
                     </div>
 
                     {auth.user ? (
                         <div className="lg:block md:block hidden text-sm">
-                            <Link 
-                                href="/auth/logout" 
-                                method="post"  // Penting: menggunakan method POST
-                                as="button"    // Render sebagai tombol
-
+                            <Link
+                                href="/auth/logout"
+                                method="post" // Penting: menggunakan method POST
+                                as="button" // Render sebagai tombol
                             >
                                 Logout
                             </Link>

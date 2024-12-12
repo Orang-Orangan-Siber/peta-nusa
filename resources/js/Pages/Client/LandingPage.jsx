@@ -1,3 +1,4 @@
+import Carousel from "@/Components/Carousel/Carousel";
 import { useState, useEffect, useRef } from "react";
 import Navbar from "@/Components/Navbar/Navbar";
 export default function () {
@@ -383,6 +384,10 @@ export default function () {
                 </div>
             </section>
 
+            <section>
+                <Carousel />
+            </section>
+
             <footer class="p-4 bg-white border-t-2 sm:p-6">
                 <div class="mx-auto max-w-screen-xl">
                     <div class="md:flex md:justify-between">
@@ -393,66 +398,49 @@ export default function () {
                                 alt="PetaNusa Logo"
                             />
                         </div>
-                        <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+                        <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-2">
                             <div>
                                 <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase ">
-                                    Footer
+                                    TENTANG KAMI
                                 </h2>
                                 <ul class="text-gray-600 ">
                                     <li class="mb-4">
                                         <a
-                                            href="https://flowbite.com"
-                                            class="hover:underline"
+                                            href="https://github.com/Orang-Orangan-Siber"
+                                            class="hover:underline "
                                         >
-                                            Infokan
+                                            Tentang Peta Nusa
                                         </a>
                                     </li>
                                     <li>
                                         <a
-                                            href="https://tailwindcss.com/"
+                                            href="mailto:randdevs54@gmail.com"
                                             class="hover:underline"
                                         >
-                                            Ide text
+                                            Kontak Kami
                                         </a>
                                     </li>
                                 </ul>
                             </div>
                             <div>
                                 <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase ">
-                                    Follow us
+                                    IKUTI KAMI
                                 </h2>
                                 <ul class="text-gray-600 ">
                                     <li class="mb-4">
                                         <a
-                                            href="https://github.com/themesberg/flowbite"
-                                            class="hover:underline "
+                                            href="https://github.com/iyasz"
+                                            class="hover:underline"
                                         >
                                             Github
                                         </a>
                                     </li>
                                     <li>
                                         <a
-                                            href="https://discord.gg/4eeurUVvTy"
+                                            href="https://www.instagram.com/yaszavellia/"
                                             class="hover:underline"
                                         >
-                                            Discord
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase ">
-                                    Infokan
-                                </h2>
-                                <ul class="text-gray-600 ">
-                                    <li class="mb-4">
-                                        <a href="#" class="hover:underline">
-                                            Ide text
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="hover:underline">
-                                            Buat footer
+                                            Instagram
                                         </a>
                                     </li>
                                 </ul>
@@ -465,7 +453,10 @@ export default function () {
                             © 2024 Peta Nusa
                         </span>
                         <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
-                            <a href="#" class="text-gray-500 hover:scale-110 ">
+                            <a
+                                href="https://www.instagram.com/rafi_feranda/"
+                                class="text-gray-500 hover:scale-110 "
+                            >
                                 <svg
                                     class="w-6 h-6"
                                     fill="currentColor"
@@ -480,7 +471,10 @@ export default function () {
                                 </svg>
                             </a>
 
-                            <a href="#" class="text-gray-500 ">
+                            <a
+                                href="mailto:randdevs54@gmail.com"
+                                class="text-gray-500 "
+                            >
                                 <svg
                                     className="w-[25px] h-[25px] align-middle hover:scale-110 transition-all"
                                     fill="none"
@@ -495,7 +489,10 @@ export default function () {
                                     <path d="M5.25 7.5 12 12.75l6.75-5.25" />
                                 </svg>
                             </a>
-                            <a href="#" class="text-gray-500 hover:scale-110">
+                            <a
+                                href="https://github.com/iyasz"
+                                class="text-gray-500 hover:scale-110"
+                            >
                                 <svg
                                     class="w-6 h-6"
                                     fill="currentColor"

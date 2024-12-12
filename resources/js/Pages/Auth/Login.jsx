@@ -1,11 +1,10 @@
 import axios from "axios";
 import { useRef, useState } from "react";
-import React from 'react'
+import React from "react";
 
 export default function () {
     const email = useRef();
     const password = useRef();
-
 
     const [showPassword, setShowPassword] = useState(false);
 
@@ -17,7 +16,7 @@ export default function () {
                     password,
                 })
                 .then((res) => {
-                    window.location.href="/"
+                    window.location.href = "/";
                 })
                 .catch((res) => {
                     console.error(res.response.data);
@@ -38,7 +37,7 @@ export default function () {
                 <div className="w-full bg-white rounded-lg shadow  md:mt-0 sm:max-w-md xl:p-0 ">
                     <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                         <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
-                            Sign in to your account
+                            Masuk ke Akun Kamu
                         </h1>
                         <form
                             className="space-y-4 md:space-y-6"
@@ -63,7 +62,7 @@ export default function () {
                                     name="email"
                                     id="email"
                                     className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-1 focus:ring-orange-400 focus:border-orange-400 outline-none block w-full p-2.5 transition-all"
-                                    placeholder="name@company.com"
+                                    placeholder="email@domain.com"
                                     ref={email}
                                     required
                                 />
@@ -148,15 +147,15 @@ export default function () {
                                 type="submit"
                                 className="w-full text-orange-500 border border-orange-400 hover:bg-orange-400 hover:text-white focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition-all duration-300"
                             >
-                                Sign in
+                                Masuk
                             </button>
                             <p className="text-sm font-light text-gray-500 text-center">
-                                Don’t have an account yet?{" "}
+                                Belum punya akun?{" "}
                                 <a
                                     href="/auth/register"
                                     className="font-medium text-orange-600 hover:underline "
                                 >
-                                    Sign up
+                                    Daftar
                                 </a>
                             </p>
                         </form>
