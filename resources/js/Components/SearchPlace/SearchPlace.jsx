@@ -1,4 +1,30 @@
+import axios from "axios";
+import { useRef, useState, useEffect } from "react";
+
 export default function ({ setToggleSearch }) {
+
+    const [valueInp, setValueInp] = useState("");
+    const baseUrl = window.location.origin;
+
+
+    const handleInputChange = async (e) => {
+        setValueInp(e.target.value); 
+
+        await axios.post(`${baseUrl}/data/getSearch`, {
+            data : e.target.value
+        })
+        .then((res) => {
+            
+            console.log(res)
+        })
+        .catch((res) => {
+            console.error(res.response.data);
+        });
+
+        console.log("Current value:", e.target.value); 
+    };
+
+
     return (
         <>
             <div
@@ -13,12 +39,14 @@ export default function ({ setToggleSearch }) {
                         event.stopPropagation();
                     }}
                 >
-                    <div class="flex w-full relative">
+                    <div className="flex w-full relative">
                         <input
                             type="text"
                             name="search"
                             id="search"
-                            placeholder="Cari Kotamu..."
+                            value={valueInp}
+                            onInput={handleInputChange} 
+                            placeholder="Lagi mau kemana nih ? .."
                             className="w-full px-4 py-2 rounded-md border-2 border-gray-300 outline-none focus:border-orange-400  transition-all text-gray-900 pr-10 "
                         />
                         <svg

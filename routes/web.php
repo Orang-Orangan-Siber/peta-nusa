@@ -12,11 +12,12 @@ use Inertia\Inertia;
 
 Route::get('/', [IndexController::class, 'LandingPage'])->name('home');
 Route::get('/detail/{slug}', [IndexController::class, 'detailDestination']);
+Route::post('/data/getSearch', [IndexController::class, 'searchDestination']);
 
 
 Route::middleware(['guest'])->group(function () {
 
-    
+
     Route::get('/auth/login', [AuthController::class, 'loginView'])->name('login');
     Route::post('/auth/login', [AuthController::class, 'loginPost'])->name('login.post');
     Route::get('/auth/register', [AuthController::class, 'registerView']);

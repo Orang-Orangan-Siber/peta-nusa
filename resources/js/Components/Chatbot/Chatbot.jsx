@@ -17,13 +17,15 @@ export default function () {
     const [messages, setMessages] = useState(props.messages || []); 
     const currentURL = window.location.href;
 
-    axios.get(`${baseUrl}/data/getChatMessage`)
-    .then((res) => {
-        setMessages(res.data.messages)
-    })
-    .catch((res) => {
-        console.error(res.response.data);
-    });
+    if(auth.user){
+        axios.get(`${baseUrl}/data/getChatMessage`)
+        .then((res) => {
+            setMessages(res.data.messages)
+        })
+        .catch((res) => {
+            console.error(res.response.data);
+        });
+    }
 
    
 

@@ -55,4 +55,10 @@ class IndexController extends Controller
         ]);
     }
 
+    public function searchDestination(Request $request) {
+        $destination = Destination::where('name', 'LIKE', '%' . $request->data . '%')->get();
+
+        return response()->json(['data' => $destination]);
+    }
+
 }
