@@ -1,103 +1,106 @@
 import React from "react";
 import Navbar from "@/Components/Navbar/Navbar";
-export default function () {
-    const bookmarks = [
-        {
-            id: 1,
-            image: "https://picsum.photos/200/300",
-            title: "Bookmark 1",
-            description:
-                "This is a description for bookmark 1, lorem ipsum dolor sit amet",
-        },
-        {
-            id: 2,
-            image: "https://picsum.photos/200/301",
-            title: "Bookmark 2",
-            description:
-                "This is a description for bookmark 2, Lorem ipsum dolor sit amet, consectetur ",
-        },
-        {
-            id: 3,
-            image: "https://picsum.photos/200/302",
-            title: "Bookmark 3",
-            description: "This is a description for bookmark 3",
-        },
-        {
-            id: 4,
-            image: "https://picsum.photos/200/303",
-            title: "Bookmark 4",
-            description: "This is a description for bookmark 4",
-        },
-        {
-            id: 5,
-            image: "https://picsum.photos/200/304",
-            title: "Bookmark 5",
-            description: "This is a description for bookmark 5",
-        },
-        {
-            id: 6,
-            image: "https://picsum.photos/200/305",
-            title: "Bookmark 6",
-            description: "This is a description for bookmark 6",
-        },
-        {
-            id: 7,
-            image: "https://picsum.photos/200/306",
-            title: "Bookmark 7",
-            description: "This is a description for bookmark 7",
-        },
-        {
-            id: 8,
-            image: "https://picsum.photos/200/307",
-            title: "Bookmark 8",
-            description: "This is a description for bookmark 8",
-        },
-    ];
+import { useState } from "react";
+import { useForm } from "@inertiajs/react";
+
+
+export default function ({ bookmarks }) {
+
+    const bookmarksData = bookmarks
+
+    const { delete: deleteRequest } = useForm();
+ 
+    const handleDelete = (slug) => {
+        if (!confirm("Apakah anda ingin menghapus data ini?")) {
+            return;
+        }
+    
+        deleteRequest(route("bookmark.destroy", { slug }));
+    };
 
     return (
         <>
             <Navbar />
-            <div className="container mx-auto md:p-4 p-2">
-                <h1 className="md:text-3xl text-2xl font-semibold mb-4 text-center text-gray-900">
+            <div className="lg:mx-16 md:mx-8 mx-3 my-10">
+                <h1 className="text-3xl font-semibold mb-7 text-center text-gray-900">
+                    <div className="flex justify-center">
+                        <p className="bg-orange-200 text-orange-500 w-max px-3 py-1 rounded-full text-xs font-medium tracking-wide mb-2">
+                            Cari Tempat Liburanmu
+                        </p>
+                    </div>
                     Daftar Destinasimu
                 </h1>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-4 md:gap-3 gap-2">
-                    {bookmarks.map((bookmark) => (
-                        <div
-                            key={bookmark.id}
-                            className="bg-white md:rounded-lg rounded-md shadow-md lg:p-4 p-2 border border-gray-300/30 flex flex-col justify-between"
-                        >
-                            <div className="w-full">
-                                <img
-                                    src={bookmark.image}
-                                    alt={bookmark.title}
-                                    className="w-full h-48 object-cover md:rounded-lg rounded-md md:mb-4 mb-2"
-                                />
-                                <h2 className="text-lg font-bold lg:mb-2 mb-1">
-                                    {bookmark.title}
-                                </h2>
-                                <p className="text-gray-600">
-                                    {bookmark.description}
-                                </p>
+                {bookmarksData.length > 0 ? (
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 md:gap-4 gap-2">
+                        {bookmarksData.map((bookmark) => (
+                        <div key={bookmark.id} className="bg-white rounded-lg border border-gray-300/30 flex flex-col">
+                            <img
+                            src={bookmark.destination.thumbnail}
+                            alt={bookmark.destination.name}
+                            className="w-full md:h-48 h-[140px] object-cover rounded-t-lg mb-4"
+                            />
+                            <div className="w-full px-4">
+                            <h2 className="md:text-lg text-sm font-bold mb-2 leading-[1.2]">{bookmark.destination.name}</h2>
+                            <p className="text-gray-600 lg:text-sm text-xs">{bookmark.destination.tagline}</p>
                             </div>
-                            <div className="flex flex-row gap-2 w-full space-between mt-2">
-                                <button className="border border-orange-500 text-orange-500 lg:p-2 md:p-[6px] p-1 w-4/5 hover:bg-orange-500 hover:text-slate-100 transition-all md:rounded-md rounded-[4px]">
-                                    Lihat Detail
-                                </button>
-                                <div className="w-1/5 bg-orange-500 md:rounded-md rounded-[4px] flex items-center justify-center cursor-pointer hover:bg-orange-600 transition-all">
-                                    <svg
-                                        fill="#f1f5f9"
-                                        viewBox="0 0 24 24"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        className="lg:w-7 lg:h-7 md:w-6 md:h-6 w-5 h-5"
-                                    >
-                                        <path d="M20.979 4.5H15.75V2.25A.75.75 0 0 0 15 1.5H9a.75.75 0 0 0-.75.75V4.5H3.021L3 6.375h1.547l.942 14.719A1.5 1.5 0 0 0 6.984 22.5h10.032a1.5 1.5 0 0 0 1.496-1.404l.941-14.721H21L20.979 4.5ZM8.25 19.5l-.422-12h1.547l.422 12H8.25Zm4.5 0h-1.5v-12h1.5v12Zm1.125-15h-3.75V3.187A.188.188 0 0 1 10.313 3h3.374a.188.188 0 0 1 .188.188V4.5Zm1.875 15h-1.547l.422-12h1.547l-.422 12Z" />
-                                    </svg>
-                                </div>
+                            <div className="flex flex-row justify-end gap-2 mt-auto p-4 w-full">
+                            <a
+                                href={'/detail/' + bookmark.destination.slug}
+                                className="border border-orange-500 text-orange-500 p-2 md:w-full w-max hover:bg-orange-500 hover:text-slate-100 transition-all rounded-md text-center text-sm"
+                            >
+                                <span className="md:block hidden">Lihat Detail</span>
+                                <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="17"
+                                height="17"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="1.25"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                className="lucide lucide-eye md:hidden block"
+                                >
+                                <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" />
+                                <circle cx="12" cy="12" r="3" />
+                                </svg>
+                            </a>
+                            <button
+                                onClick={(e) => {
+                                e.preventDefault();
+                                handleDelete(bookmark.destination.slug);
+                                }}
+                                className="w-max bg-orange-500 rounded-md px-3 hover:bg-orange-600 transition-all"
+                            >
+                                <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="17"
+                                height="17"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="#fff"
+                                strokeWidth="1.25"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                className="lucide lucide-trash-2"
+                                >
+                                <path d="M3 6h18" />
+                                <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
+                                <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
+                                <line x1="10" x2="10" y1="11" y2="17" />
+                                <line x1="14" x2="14" y1="11" y2="17" />
+                                </svg>
+                            </button>
                             </div>
                         </div>
-                    ))}
-                </div>
+                        ))}
+                    </div>
+                    ) : (
+                        <div className="text-center mt-28">
+                            <p className="md:text-[24px] text-sm text-slate-600 ">Oops, No bookmarks found ...</p>
+                        </div>
+                    )}
+
             </div>
         </>
     );

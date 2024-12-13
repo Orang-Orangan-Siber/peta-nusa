@@ -93,14 +93,12 @@ export default function () {
                 >
                     {images.map((image, index) => {
                         return (
-                            <>
-                                <img
-                                    key={index}
-                                    src={image.src}
-                                    alt="img hero"
-                                    className={`w-full h-full object-cover `}
-                                />
-                            </>
+                            <img
+                                key={index}
+                                src={image.src}
+                                alt="img hero"
+                                className={`w-full h-full object-cover `}
+                            />
                         );
                     })}
                 </div>

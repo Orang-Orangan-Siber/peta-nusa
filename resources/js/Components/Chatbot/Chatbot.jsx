@@ -17,13 +17,15 @@ export default function () {
     const [messages, setMessages] = useState(props.messages || []); 
     const currentURL = window.location.href;
 
-    axios.get(`${baseUrl}/data/getChatMessage`)
-    .then((res) => {
-        setMessages(res.data.messages)
-    })
-    .catch((res) => {
-        console.error(res.response.data);
-    });
+    if(auth.user){
+        axios.get(`${baseUrl}/data/getChatMessage`)
+        .then((res) => {
+            setMessages(res.data.messages)
+        })
+        .catch((res) => {
+            console.error(res.response.data);
+        });
+    }
 
    
 
@@ -108,8 +110,8 @@ export default function () {
 
 
                 {isVisible && (
-                    <div className="fixed right-[140px] bottom-[40px] z-[60] content">
-                        <div className="relative w-[400px] h-[500px] bg-slate-50 border">
+                    <div className="fixed md:right-[140px] right-[15px] md:bottom-[40px] bottom-[110px] z-[101] content">
+                        <div className="relative md:w-[400px] w-[320px] md:h-[500px] h-[400px] bg-slate-50 border">
                             <div className="flex flex-col h-full">
                                 <div className="header bg-white w-full h-[65px]">
                                     <div className="flex items-center h-full gap-5 ms-5 py-2">

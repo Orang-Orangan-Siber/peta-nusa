@@ -30,8 +30,8 @@ class IndexController extends Controller
         $comments = Comment::with(['user'])->where('destination_id', $destination->id)->orderBy('created_at', 'desc')->get();
 
         // GET 2 PLACE 
-        $get2Destination = Destination::take(2)->get();
-        // where('id', '!=', $destination->id)->
+        $get2Destination = Destination::where('id', '!=', $destination->id)->take(2)->get();
+        
         // dd($get2Destination);
 
 
@@ -39,7 +39,7 @@ class IndexController extends Controller
         $isBookmark = false;
         
         if(Auth::user()){
-            $bookmark = Bookmark::where('user_id', Auth::user()->id)->first();
+            $bookmark = Bookmark::where('user_id', Auth::user()->id)->where('destination_id', $destination->id)->first();
 
             if($bookmark){
                 $isBookmark = true;
@@ -53,6 +53,17 @@ class IndexController extends Controller
             'get2Destination' => $get2Destination,
             'comments' => $comments,
         ]);
+    }
+
+    public function searchDestination(Request $request) {
+        $destination = Destination::all();
+
+        if($request->data){
+            $destination = Destination::where('name', 'LIKE', '%' . $request->data . '%')->get();
+        }
+
+
+        return response()->json(['data' => $destination]);
     }
 
 }
