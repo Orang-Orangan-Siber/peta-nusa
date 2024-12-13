@@ -40,7 +40,7 @@ export default function () {
                         </a>
                     </div>
 
-                    <div className="lg:hidden flex items-center">
+                    <div className="lg:hidden md:hidden flex items-center">
                         <button onClick={toggleSidebarMobile}>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -61,7 +61,7 @@ export default function () {
                         </button>
                     </div>
 
-                    <div className="lg:block hidden">
+                    <div className="lg:block md:block hidden">
                         <ul className="flex gap-7 text-sm text-slate-500 tracking-wide font-medium">
                             <li>
                                 <a href="/" className=" hover:text-slate-900">
