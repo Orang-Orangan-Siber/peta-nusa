@@ -105,7 +105,10 @@ export default function () {
                         </div>
                     </div>
 
-                    <a href="/detail/raja-ampat-the-last-paradise" className="relative w-full md:w-[600px] h-[300px] md:h-[400px] overflow-hidden group rounded-lg mt-10 lg:mt-0 mx-auto lg:mx-0 lg:order-1 order-0">
+                    <a
+                        href="/detail/raja-ampat-the-last-paradise"
+                        className="relative w-full md:w-[600px] h-[300px] md:h-[400px] overflow-hidden group rounded-lg mt-10 lg:mt-0 mx-auto lg:mx-0 lg:order-1 order-0"
+                    >
                         <img
                             src="https://www.papuaparadise.com/wp-content/uploads/2017/09/bungalows-1200x800.jpg"
                             alt="img hero"
@@ -206,12 +209,11 @@ export default function () {
                         </div>
                     </div>
                 </div>
-
-                {/* <img src="https://www.papuaparadise.com/wp-content/uploads/2017/09/bungalows-1200x800.jpg" alt="img hero" width="100%" /> */}
-                {/* <h5 className="text-[50px]">ELAINA CANTIK</h5> */}
-                {/* <img src="https://www.papuaparadise.com/wp-content/uploads/2017/09/bungalows-1200x800.jpg" alt="img hero" width="100%" className="keren" /> */}
             </section>
-            <section id="about" className="w-full bg-black md:h-[925px] h-[965px] m-0 relative lg:p-10 md:p-6 p-4 ">
+            <section
+                id="about"
+                className="w-full bg-black md:h-[925px] h-[965px] m-0 relative lg:p-10 md:p-6 p-4 "
+            >
                 <img
                     src="https://www.papuaparadise.com/wp-content/uploads/2017/09/bungalows-1200x800.jpg"
                     alt=""
@@ -314,7 +316,10 @@ export default function () {
                     </div>
                 </div>
             </section>
-            <section id="service" className="lg:py-16 py-12 lg:mx-16 md:mx-8 mx-3">
+            <section
+                id="service"
+                className="lg:py-16 py-12 lg:mx-16 md:mx-8 mx-3"
+            >
                 <div className="flex md:flex-row flex-col gap-1 lg:justify-evenly justify-between">
                     <p
                         id="layanan-kiri"
