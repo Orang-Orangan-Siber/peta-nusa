@@ -39,7 +39,7 @@ class IndexController extends Controller
         $isBookmark = false;
         
         if(Auth::user()){
-            $bookmark = Bookmark::where('user_id', Auth::user()->id)->first();
+            $bookmark = Bookmark::where('user_id', Auth::user()->id)->where('destination_id', $destination->id)->first();
 
             if($bookmark){
                 $isBookmark = true;

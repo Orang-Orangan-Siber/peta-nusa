@@ -79,7 +79,7 @@ export default function () {
                                 </a>
                             </li>
                             <li>
-                                <a href="" className=" hover:text-slate-900">
+                                <a href="/user/bookmarks" className=" hover:text-slate-900">
                                     Petualangan Saya
                                 </a>
                             </li>

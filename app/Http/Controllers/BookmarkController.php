@@ -12,7 +12,11 @@ class BookmarkController extends Controller
 {
 
     public function index() {
-        return Inertia::render('Client/Bookmarks');
+        $bookmarks = Bookmark::with('destination')->where('user_id', Auth::user()->id)->get();
+
+        return Inertia::render('Client/Bookmarks', [
+            'bookmarks' => $bookmarks
+        ]);
     }
 
     public function store(Request $request, $slug) {
@@ -24,5 +28,24 @@ class BookmarkController extends Controller
         $bookmark->save();
 
         return response()->json(['message' => 'Berhasil menambah bookmark!'], 201);
+    }
+
+    public function destroy($slug) {
+        $destination = Destination::where('slug', $slug)->first();
+
+        if(!$destination){
+            abort(404);
+        }
+
+        $bookmark = Bookmark::where('destination_id', $destination->id)->where('user_id', Auth::user()->id)->first();
+
+        if(!$bookmark){
+            abort(404);
+        }
+
+        $bookmark->delete();
+
+        return redirect('/user/bookmarks');
+        
     }
 }
