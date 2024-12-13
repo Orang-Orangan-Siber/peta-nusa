@@ -13,6 +13,7 @@ use Inertia\Inertia;
 Route::get('/', [IndexController::class, 'LandingPage'])->name('home');
 Route::get('/detail/{slug}', [IndexController::class, 'detailDestination']);
 Route::post('/data/getSearch', [IndexController::class, 'searchDestination']);
+Route::get('/data/getNewPlace', [IndexController::class, 'getNewDestination']);
 
 
 Route::middleware(['guest'])->group(function () {

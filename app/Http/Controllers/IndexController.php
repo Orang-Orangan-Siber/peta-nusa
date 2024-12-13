@@ -66,4 +66,10 @@ class IndexController extends Controller
         return response()->json(['data' => $destination]);
     }
 
+    public function getNewDestination() {
+        $destination = Destination::orderBy('id', 'desc')->first();
+
+        return response()->json(['data' => $destination]);
+    }
+
 }

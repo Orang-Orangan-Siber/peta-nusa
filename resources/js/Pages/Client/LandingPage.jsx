@@ -34,7 +34,7 @@ export default function () {
             {toggleSearch && <SearchPlace setToggleSearch={setToggleSearch} />}
             <section id="hero" className="lg:mx-16 md:mx-8 mx-6">
                 <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end md:mt-10 mt:0">
-                    <div className="md:mt-5 mt-10 w-full lg:w-auto">
+                    <div className="md:mt-5 mt-10 w-full lg:w-auto lg:order-0 order-1">
                         <p className="bg-orange-200 text-orange-500 w-max px-3 py-1 rounded-full text-xs font-medium tracking-wide mb-2">
                             Cari Tempat Liburanmu
                         </p>
@@ -77,7 +77,7 @@ export default function () {
                             <div className="flex items-center justify-center lg:justify-normal md:gap-6 gap-2">
                                 <div className="text-center">
                                     <h1 className="md:text-3xl text-2xl font-semibold text-slate-800">
-                                        99+
+                                        6
                                     </h1>
                                     <p className="text-[10px] md:text-xs text-slate-500 tracking-wider">
                                         Daftar Pengguna
@@ -86,7 +86,7 @@ export default function () {
                                 <div className="w-[1px] h-[18px] bg-slate-600"></div>
                                 <div className="text-center">
                                     <h1 className="md:text-3xl text-2xl font-semibold text-slate-800">
-                                        24
+                                        4
                                     </h1>
                                     <p className="text-[10px] md:text-xs text-slate-500 tracking-wider">
                                         Dukungan Tempat
@@ -105,15 +105,15 @@ export default function () {
                         </div>
                     </div>
 
-                    <div className="relative w-full md:w-[600px] h-[300px] md:h-[400px] overflow-hidden cursor-pointer group rounded-lg mt-10 lg:mt-0 mx-auto lg:mx-0">
+                    <a href="/detail/raja-ampat-the-last-paradise" className="relative w-full md:w-[600px] h-[300px] md:h-[400px] overflow-hidden group rounded-lg mt-10 lg:mt-0 mx-auto lg:mx-0 lg:order-1 order-0">
                         <img
                             src="https://www.papuaparadise.com/wp-content/uploads/2017/09/bungalows-1200x800.jpg"
                             alt="img hero"
                             className="w-full h-full object-cover"
                         />
-                        <div className="detail absolute -bottom-[120px] h-[120px] md:bottom-[-140px] group-hover:bottom-[0] bg-white/30 backdrop-blur-sm w-full md:h-[140px] transition-all duration-700">
+                        <div className="detail absolute -bottom-[120px] h-[100px] md:bottom-[-140px] group-hover:bottom-[0] bg-white/30 backdrop-blur-sm w-full md:h-[140px] transition-all duration-700">
                             <div className="md:p-5 p-3">
-                                <h1 className="text-white text-lg md:text-2xl tracking-wide">
+                                <h1 className="text-white text-lg md:text-2xl tracking-wide leading-[1.2]">
                                     Pantai Raja Ampat: Surga Tropis di Timur
                                 </h1>
                                 <div className="flex mt-2 md:mt-1">
@@ -134,7 +134,7 @@ export default function () {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </section>
             <div className="bg-slate-100 w-full lg:my-28 md:my-20 my-16">

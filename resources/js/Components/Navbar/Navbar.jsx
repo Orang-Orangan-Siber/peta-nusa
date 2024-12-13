@@ -2,15 +2,30 @@ import { React, useState } from "react";
 import { Link, usePage } from "@inertiajs/react";
 import Chatbot from "../Chatbot/Chatbot";
 import SideBarMobile from "./Mobile";
+import axios from "axios";
 
 export default function () {
     const { auth } = usePage().props;
+    const baseUrl = window.location.origin;
+
 
     const [sidebarMobile, setSidebarMobile] = useState(false);
+    const [newDestination, seNnewDestination] = useState(false);
 
     const toggleSidebarMobile = () => {
         setSidebarMobile(!sidebarMobile);
     };
+
+    // get new destination 
+    axios.get(`${baseUrl}/data/getNewPlace`)
+    .then((res) => {
+        const response = res.data.data
+        seNnewDestination(response)
+    })
+    .catch((res) => {
+        console.error(res);
+    });
+
 
     return (
         <>
@@ -23,7 +38,7 @@ export default function () {
             <div className="w-full bg-orange-50 h-[50px] flex items-center justify-center">
                 <p className="lg:text-sm text-xs text-slate-400 tracking-wide">
                     Ada tempat baru nih! Yuk kunjungi sekarang!{" "}
-                    <a href="" className="text-orange-400 hover:underline">
+                    <a href={'/detail/'+newDestination.slug} className="text-orange-400 hover:underline">
                         Klik disini
                     </a>
                 </p>
@@ -69,12 +84,12 @@ export default function () {
                                 </a>
                             </li>
                             <li>
-                                <a href="" className=" hover:text-slate-900">
+                                <a href="#about" className=" hover:text-slate-900">
                                     About
                                 </a>
                             </li>
                             <li>
-                                <a href="" className=" hover:text-slate-900">
+                                <a href="#service" className=" hover:text-slate-900">
                                     Layanan
                                 </a>
                             </li>
