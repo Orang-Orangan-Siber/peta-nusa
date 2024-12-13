@@ -34,12 +34,6 @@ export default function () {
         },
     ];
 
-    // const images = [
-    //     "https://picsum.photos/200/300",
-    //     "https://picsum.photos/200/301",
-    //     "https://picsum.photos/200/302",
-    // ];
-
     const handleNext = () => {
         setCurrentIndex((currentIndex + 1) % images.length);
     };
@@ -54,7 +48,7 @@ export default function () {
 
     return (
         <>
-            <div className="flex-[2] h-[392px] bg-black rounded-lg relative overflow-hidden">
+            <div className="lg:flex-[2] lg:h-[392px] md:w-[49%] md:h-[364px] bg-black rounded-lg relative overflow-hidden">
                 <div className="flex flex-row justify-center gap-4 absolute top-2 left-0 h-[10%] w-full z-10">
                     {images.map((_, index) => {
                         return (
@@ -73,8 +67,7 @@ export default function () {
                 <div className="flex justify-between absolute top-[50%] translate-y-[-50%] z-10 w-full">
                     <button className="p-2 ml-1" onClick={handlePrev}>
                         <svg
-                            width={36}
-                            height={36}
+                            className="md:w-9 md:h-9 w-7 h-7"
                             fill="#f1f5f9"
                             viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg"
@@ -84,8 +77,7 @@ export default function () {
                     </button>
                     <button className=" p-2 mr-1" onClick={handleNext}>
                         <svg
-                            width={36}
-                            height={36}
+                            className="md:w-9 md:h-9 w-7 h-7"
                             fill="#f1f5f9"
                             viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg"
@@ -112,11 +104,11 @@ export default function () {
                         );
                     })}
                 </div>
-                <div className="w-full h-[30%] p-4 absolute bottom-0  bg-slate-600/20 z-10 backdrop-blur-sm">
-                    <h2 className="text-slate-100  font-semibold text-xl transition-all">
+                <div className="w-full lg:h-[35%] md:h-[38%] lg:p-4 p-3 absolute bottom-0 bg-slate-600/20 z-10 backdrop-blur-sm">
+                    <h2 className="text-slate-100 font-semibold text-xl md:text-lg transition-all">
                         {images[currentIndex].title}
                     </h2>
-                    <p className="text-slate-100/80 py-2">
+                    <p className="text-slate-100/80 lg:py-2 py-1 lg:text-base text-sm tracking-wide">
                         {images[currentIndex].captions}
                     </p>
                 </div>
