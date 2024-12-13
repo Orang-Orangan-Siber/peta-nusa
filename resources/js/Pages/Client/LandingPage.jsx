@@ -162,7 +162,7 @@ export default function () {
                 </div>
             </div>
             <section id="pictures">
-                <div className="my-36 flex justify-center gap-10">
+                {/* <div className="my-36 flex justify-center gap-10">
                     <div className="w-[340px] h-[500px] bg-slate-500 rounded-xl overflow-hidden img-container">
                         <img
                             src="https://static.promediateknologi.id/crop/0x443:1080x1594/0x0/webp/photo/p2/74/2024/07/23/Screenshot_20240723_133757-1777239886.jpg"
@@ -205,7 +205,7 @@ export default function () {
                             />
                         </div>
                     </div>
-                </div>
+                </div> */}
 
                 {/* <img src="https://www.papuaparadise.com/wp-content/uploads/2017/09/bungalows-1200x800.jpg" alt="img hero" width="100%" /> */}
                 {/* <h5 className="text-[50px]">ELAINA CANTIK</h5> */}

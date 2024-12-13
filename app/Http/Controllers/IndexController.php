@@ -30,8 +30,8 @@ class IndexController extends Controller
         $comments = Comment::with(['user'])->where('destination_id', $destination->id)->orderBy('created_at', 'desc')->get();
 
         // GET 2 PLACE 
-        $get2Destination = Destination::take(2)->get();
-        // where('id', '!=', $destination->id)->
+        $get2Destination = Destination::where('id', '!=', $destination->id)->take(2)->get();
+        
         // dd($get2Destination);
 
 
@@ -56,7 +56,12 @@ class IndexController extends Controller
     }
 
     public function searchDestination(Request $request) {
-        $destination = Destination::where('name', 'LIKE', '%' . $request->data . '%')->get();
+        $destination = Destination::all();
+
+        if($request->data){
+            $destination = Destination::where('name', 'LIKE', '%' . $request->data . '%')->get();
+        }
+
 
         return response()->json(['data' => $destination]);
     }
