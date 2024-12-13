@@ -211,16 +211,16 @@ export default function () {
                 {/* <h5 className="text-[50px]">ELAINA CANTIK</h5> */}
                 {/* <img src="https://www.papuaparadise.com/wp-content/uploads/2017/09/bungalows-1200x800.jpg" alt="img hero" width="100%" className="keren" /> */}
             </section>
-            <section className="w-full bg-black lg:h-[925px] h-[1000px] m-0 relative lg:p-10 md:p-6 p-4 ">
+            <section className="w-full bg-black md:h-[925px] h-[965px] m-0 relative lg:p-10 md:p-6 p-4 ">
                 <img
                     src="https://www.papuaparadise.com/wp-content/uploads/2017/09/bungalows-1200x800.jpg"
                     alt=""
                     className="absolute w-full h-full object-cover top-0 left-0 opacity-15"
                 />
-                <div className="w-full lg:h-[28%] h-1/4">
+                <div className="w-full md:h-[28%] h-1/4">
                     <h1
                         id="discover-heading"
-                        className={`text-white lg:text-[46px] md:text-[36px] text-[26px] text-center font-semibold mt-2 transition-all duration-700 ease-in-out scroll-element ${
+                        className={`text-white lg:text-[46px] md:text-[36px] text-[26px] text-center font-semibold md:mt-2 mt-4  transition-all duration-700 ease-in-out scroll-element ${
                             visibleElements.includes("discover-heading")
                                 ? "opacity-100 translate-y-0"
                                 : "opacity-0 translate-y-10"
@@ -230,7 +230,7 @@ export default function () {
                     </h1>
                     <p
                         id="discover-paragraph"
-                        className={`text-white font-medium md:text-xl text-lg lg:my-8 lg:w-1/2 md:my-4 md:w-4/5 my-2 w-full text-center mx-auto transition-all duration-1000 ease-in-out scroll-element ${
+                        className={`text-white font-medium md:text-xl text-lg lg:my-8 lg:w-1/2 md:my-4 md:w-4/5 my-8 w-full text-center mx-auto transition-all duration-1000 ease-in-out scroll-element ${
                             visibleElements.includes("discover-paragraph")
                                 ? "opacity-70 translate-y-0"
                                 : "opacity-0 translate-y-10"
@@ -243,69 +243,69 @@ export default function () {
                     </p>
                 </div>
 
-                <div className="flex w-full h-2/3 gap-3 z-10 relative">
-                    <div className="w-1/4 flex flex-col gap-2">
+                <div className="flex lg:flex-row lg:flex-nowrap flex-row flex-wrap w-full h-2/3 gap-3 z-10 relative md:mt-0 mt-14">
+                    <div className="lg:w-1/4 w-[48%] flex flex-col gap-2 md:h-1/3 h-[40%] lg:h-full ">
                         <img
-                            src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcT-1xEEM5OHDLDcVB6lL2zuUXvpmrwr-DG2l3wyabv3X9CkbbPKWCNCvcSUPhZ_PgXDPMhZyea4bd_-_Hlnu-I8hUngNHCAnFCOCp678A"
+                            src="https://torch.id/cdn/shop/articles/Artikel_170_-_Preview.jpg?v=1713641039"
                             alt="img hero"
-                            className="w-full h-4/5 object-cover rounded-lg"
+                            className="w-full md:h-4/5 h-2/5  object-cover rounded-lg"
                         />
-                        <div className="w-full h-1/5 pt-2">
-                            <h3 className="text-white font-semibold text-lg">
+                        <div className="w-full lg:h-1/5 h-3/5 pt-2">
+                            <h3 className="text-white font-semibold md:text-lg text-base">
                                 Danau Toba
                             </h3>
-                            <p className="text-white opacity-80 text-base">
+                            <p className="text-white opacity-80 md:text-base text-sm">
                                 Danau vulkanik terbesar di Asia Tenggara,
                                 menawarkan pemandangan indah dan budaya Batak
                                 yang kaya.
                             </p>
                         </div>
                     </div>
-                    <div className="w-1/4 flex flex-col gap-2">
+                    <div className="lg:w-1/4 w-[48%] flex flex-col gap-2 md:h-1/3 h-[40%] lg:h-full">
                         <img
-                            src="https://img.freepik.com/free-photo/mountainous-landscape-with-volcano_1150-18285.jpg?t=st=1733840731~exp=1733844331~hmac=bcf6b18f5ade1028f3cdd9d352288c242665879a62c21249c59ac7d627c0952f&w=360"
+                            src="https://asset.kompas.com/crops/fu2SL2EKEzm5evOAXDv-SyvvD9Y=/0x0:1200x800/1200x800/data/photo/2021/08/19/611e162fed8b4.jpg"
                             alt="img hero"
-                            className="w-full h-4/5 object-cover rounded-lg"
+                            className="w-full md:h-4/5 h-2/5  object-cover rounded-lg"
                         />
-                        <div className="w-full h-1/5 pt-2">
-                            <h3 className="text-white font-semibold text-lg">
+                        <div className="w-full lg:h-1/5  h-3/5 pt-2">
+                            <h3 className="text-white font-semibold md:text-lg text-base">
                                 Kawah Ijen
                             </h3>
-                            <p className="text-white opacity-80 text-base">
+                            <p className="text-white opacity-80 md:text-base text-sm">
                                 Gunung dengan pemandangan yang unik. Saksikan
                                 keindahan kawah hijau dan fenomena api biru yang
                                 memukau.
                             </p>
                         </div>
                     </div>
-                    <div className="w-1/4 flex flex-col gap-2">
+                    <div className="lg:w-1/4 w-[48%] flex flex-col gap-2 md:h-1/3 h-[40%] lg:h-full">
                         <img
                             src="https://cdn1-production-images-kly.akamaized.net/VEQfFu1vEW4Y6iQysNKhAf-bApY=/500x667/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/3237606/original/098140300_1600083527-79733397_190837218765304_7097785988066329390_n.jpg"
                             alt="img hero"
-                            className="w-full h-4/5 object-cover rounded-lg"
+                            className="w-full md:h-4/5 h-2/5  object-cover rounded-lg"
                         />
-                        <div className="w-full h-1/5 pt-2">
-                            <h3 className="text-white font-semibold text-lg">
+                        <div className="w-full lg:h-1/5  h-3/5 pt-2">
+                            <h3 className="text-white font-semibold md:text-lg text-base">
                                 Pantai Pink
                             </h3>
-                            <p className="text-white opacity-80 text-base">
+                            <p className="text-white opacity-80 md:text-base text-sm">
                                 Pasir pink yang langka dan air sebening kristal
                                 menunggu untuk kamu jelajahi. Surga kecil ini
                                 hanya ada di Lombok!
                             </p>
                         </div>
                     </div>
-                    <div className="w-1/4 flex flex-col gap-2">
+                    <div className="lg:w-1/4 w-[48%] flex flex-col gap-2 md:h-1/3 h-[40%] lg:h-full">
                         <img
                             src="https://i2.wp.com/blog.tripcetera.com/id/wp-content/uploads/2020/01/pantai-tanjung-kelayang-credit-image-@v_johni.jpg"
                             alt="img hero"
-                            className="w-full h-4/5 object-cover rounded-lg"
+                            className="w-full md:h-4/5 h-2/5  object-cover rounded-lg"
                         />
-                        <div className="w-full h-1/5 pt-2">
-                            <h3 className="text-white font-semibold text-lg">
+                        <div className="w-full lg:h-1/5  h-3/5 pt-2">
+                            <h3 className="text-white font-semibold md:text-lg text-base">
                                 Pantai Tanjung Kelayang
                             </h3>
-                            <p className="text-white opacity-80 text-base">
+                            <p className="text-white opacity-80 md:text-base text-sm">
                                 Temukan keajaiban pantai dengan batu granit
                                 ikonik dan air biru tenang. Rasakan pesonanya di
                                 Belitung
@@ -314,7 +314,7 @@ export default function () {
                     </div>
                 </div>
             </section>
-            <section className="lg:py-16 md:py-10 py-8 lg:mx-16 md:mx-8 mx-3">
+            <section className="lg:py-16 py-12 lg:mx-16 md:mx-8 mx-3">
                 <div className="flex md:flex-row flex-col gap-1 lg:justify-evenly justify-between">
                     <p
                         id="layanan-kiri"
@@ -350,8 +350,8 @@ export default function () {
                         petualangan yang berbeda dan memikat.
                     </p>
                 </div>
-                <div className="flex flex-row lg:flex-nowrap flex-wrap content-center lg:justify-between justify-center items-end w-full py-2 mt-5 lg:gap-3 md:gap-2">
-                    <div className="lg:flex-1 w-[49%] lg:h-[446px] md:h-[400px] bg-black rounded-lg overflow-hidden relative">
+                <div className="flex md:flex-row flex-col lg:flex-nowrap md:flex-wrap flex-nowrap content-center lg:justify-between justify-center items-end w-full py-2 mt-5 lg:gap-3 gap-2">
+                    <div className="lg:flex-1 md:w-[49%] w-full lg:h-[446px] h-[400px]  bg-black rounded-lg overflow-hidden relative">
                         <img
                             src="data:image/png;base64,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"
                             alt="img hero"
@@ -363,7 +363,7 @@ export default function () {
                             </p>
                         </div>
                     </div>
-                    <div className="lg:flex-1 w-[49%] lg:h-[392px] md:h-[364px] bg-black rounded-lg overflow-hidden relative">
+                    <div className="lg:flex-1 md:w-[49%] w-full lg:h-[392px] md:h-[364px] h-[246px] bg-black rounded-lg overflow-hidden relative">
                         <img
                             src="https://cdngnfi2.sgp1.digitaloceanspaces.com/gnfi/uploads/articles/gunung-batur-bali-gunung-berapi-purba-indah-dengan-kawah-kalderanya-yang-menawan-40c9.jpg"
                             alt="img hero"
@@ -375,7 +375,7 @@ export default function () {
                             </p>
                         </div>
                     </div>
-                    <div className="lg:flex-1 w-[49%] lg:h-[392px] md:h-[364px] bg-black rounded-lg overflow-hidden relative">
+                    <div className="lg:flex-1 md:w-[49%] w-full lg:h-[392px] md:h-[364px] h-[246px] bg-black rounded-lg overflow-hidden relative">
                         <img
                             src="https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcRCXK1xauVoJg31B6oqsctyzVOpVxfREcqeB6OoPQQXQNUGa1ihrXB84F1CFwkK2DUk4aBOrXv9LPV0U-MNIheApRKFoJRvx3lP7NmvfJA"
                             alt="img hero"

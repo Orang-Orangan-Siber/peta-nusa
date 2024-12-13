@@ -48,7 +48,7 @@ export default function () {
 
     return (
         <>
-            <div className="lg:flex-[2] lg:h-[392px] md:w-[49%] md:h-[364px] bg-black rounded-lg relative overflow-hidden">
+            <div className="lg:flex-[2] lg:h-[392px] md:w-[49%] md:h-[364px] h-[334px] bg-black rounded-lg relative overflow-hidden">
                 <div className="flex flex-row justify-center gap-4 absolute top-2 left-0 h-[10%] w-full z-10">
                     {images.map((_, index) => {
                         return (
